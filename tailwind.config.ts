@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,7 +62,11 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+				// Custom Hubu Scrubs colors
+				'kenyan-sand': '#F2E2C9',
+				'kenyan-brown': '#4D3B2C',
+				'kenyan-red': '#C1352D',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
