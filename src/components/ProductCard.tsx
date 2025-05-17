@@ -31,7 +31,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
           </h3>
         </Link>
         <div className="flex items-center justify-between mt-2">
-          <p className="font-semibold text-gray-900">${(product.price / 100).toFixed(2)}</p>
+          <p className="font-semibold text-gray-900">KSh {product.price.toLocaleString()}</p>
           <Button 
             size="sm" 
             variant="ghost"

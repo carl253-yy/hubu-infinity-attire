@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
@@ -18,6 +19,7 @@ import Navbar from "./components/Navbar";
 import Cart from "./components/Cart";
 import ProductDetail from "./components/ProductDetail";
 import CategoryPage from "./components/CategoryPage";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 // Context Providers
 import { CartProvider } from "./context/CartContext";
@@ -30,6 +32,7 @@ const queryClient = new QueryClient();
 
 // Product data
 const products: Product[] = [
+  // Original prices converted from $ to KSh
   {
     id: 1,
     name: "Healing Hands Men's Scrubs Top 3 Pocket V-Neck Athletic Fit",
@@ -248,12 +251,39 @@ const App = () => {
                     <Route path="/" element={<Index />} />
                     <Route path="/login" element={<Login />} />
                     <Route path="/register" element={<Register />} />
-                    <Route path="/products" element={<Products products={products} />} />
-                    <Route path="/product/:id" element={<ProductDetail products={products} />} />
-                    <Route path="/category/:category" element={<CategoryPage products={products} />} />
-                    <Route path="/cart" element={<CartPage />} />
-                    <Route path="/checkout" element={<Checkout />} />
-                    <Route path="/success" element={<Success />} />
+                    
+                    {/* Protected Routes */}
+                    <Route path="/products" element={
+                      <ProtectedRoute>
+                        <Products products={products} />
+                      </ProtectedRoute>
+                    } />
+                    <Route path="/product/:id" element={
+                      <ProtectedRoute>
+                        <ProductDetail products={products} />
+                      </ProtectedRoute>
+                    } />
+                    <Route path="/category/:category" element={
+                      <ProtectedRoute>
+                        <CategoryPage products={products} />
+                      </ProtectedRoute>
+                    } />
+                    <Route path="/cart" element={
+                      <ProtectedRoute>
+                        <CartPage />
+                      </ProtectedRoute>
+                    } />
+                    <Route path="/checkout" element={
+                      <ProtectedRoute>
+                        <Checkout />
+                      </ProtectedRoute>
+                    } />
+                    <Route path="/success" element={
+                      <ProtectedRoute>
+                        <Success />
+                      </ProtectedRoute>
+                    } />
+                    
                     {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                     <Route path="*" element={<NotFound />} />
                   </Routes>

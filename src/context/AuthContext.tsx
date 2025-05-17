@@ -1,6 +1,9 @@
 
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { User } from '@/types';
+import { supabase } from "@/integrations/supabase/client";
+import { useToast } from '@/components/ui/use-toast';
+import { Session } from '@supabase/supabase-js';
 
 interface AuthContextProps {
   user: User | null;
@@ -9,6 +12,7 @@ interface AuthContextProps {
   signup: (email: string, password: string, name: string) => Promise<boolean>;
   logout: () => void;
   isLoading: boolean;
+  session: Session | null;
 }
 
 const AuthContext = createContext<AuthContextProps>({
@@ -18,70 +22,86 @@ const AuthContext = createContext<AuthContextProps>({
   signup: async () => false,
   logout: () => {},
   isLoading: true,
+  session: null,
 });
 
 export const useAuth = () => useContext(AuthContext);
 
-// Mock API functions (in a real app, these would connect to your backend)
-const mockLogin = async (email: string, password: string): Promise<User | null> => {
-  // Simulate API delay
-  await new Promise(resolve => setTimeout(resolve, 800));
-  
-  // In a real app, this would validate with a backend
-  if (email && password.length >= 6) {
-    return {
-      id: '123',
-      email,
-      name: email.split('@')[0],
-    };
-  }
-  return null;
-};
-
-const mockSignup = async (email: string, password: string, name: string): Promise<User | null> => {
-  // Simulate API delay
-  await new Promise(resolve => setTimeout(resolve, 800));
-  
-  // In a real app, this would create a new user in your backend
-  if (email && password.length >= 6) {
-    return {
-      id: Date.now().toString(),
-      email,
-      name,
-    };
-  }
-  return null;
-};
-
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [user, setUser] = useState<User | null>(null);
+  const [session, setSession] = useState<Session | null>(null);
   const [isLoading, setIsLoading] = useState(true);
+  const { toast } = useToast();
 
+  // Initialize authentication state
   useEffect(() => {
-    // Check for saved user in localStorage on initial load
-    const savedUser = localStorage.getItem('user');
-    if (savedUser) {
-      try {
-        setUser(JSON.parse(savedUser));
-      } catch (error) {
-        console.error('Failed to parse user from localStorage:', error);
+    // Set up auth state listener FIRST
+    const { data: { subscription } } = supabase.auth.onAuthStateChange(
+      (event, newSession) => {
+        setSession(newSession);
+        if (newSession?.user) {
+          setUser({
+            id: newSession.user.id,
+            email: newSession.user.email || '',
+            name: newSession.user.user_metadata?.name || newSession.user.email?.split('@')[0] || '',
+          });
+        } else {
+          setUser(null);
+        }
       }
-    }
-    setIsLoading(false);
+    );
+
+    // THEN check for existing session
+    supabase.auth.getSession().then(({ data: { session: currentSession } }) => {
+      setSession(currentSession);
+      if (currentSession?.user) {
+        setUser({
+          id: currentSession.user.id,
+          email: currentSession.user.email || '',
+          name: currentSession.user.user_metadata?.name || currentSession.user.email?.split('@')[0] || '',
+        });
+      }
+      setIsLoading(false);
+    });
+
+    return () => {
+      subscription.unsubscribe();
+    };
   }, []);
 
   const login = async (email: string, password: string): Promise<boolean> => {
     setIsLoading(true);
     try {
-      const user = await mockLogin(email, password);
-      if (user) {
-        setUser(user);
-        localStorage.setItem('user', JSON.stringify(user));
+      const { data, error } = await supabase.auth.signInWithPassword({
+        email,
+        password
+      });
+
+      if (error) {
+        toast({
+          title: "Login failed",
+          description: error.message,
+          variant: "destructive",
+        });
+        return false;
+      }
+
+      if (data?.user) {
+        toast({
+          title: "Login successful",
+          description: "Welcome back!",
+        });
         return true;
       }
+
       return false;
     } catch (error) {
       console.error('Login error:', error);
+      toast({
+        title: "Login error",
+        description: "An unexpected error occurred. Please try again.",
+        variant: "destructive",
+      });
       return false;
     } finally {
       setIsLoading(false);
@@ -91,24 +111,51 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const signup = async (email: string, password: string, name: string): Promise<boolean> => {
     setIsLoading(true);
     try {
-      const user = await mockSignup(email, password, name);
-      if (user) {
-        setUser(user);
-        localStorage.setItem('user', JSON.stringify(user));
+      const { data, error } = await supabase.auth.signUp({
+        email,
+        password,
+        options: {
+          data: {
+            name: name,
+          }
+        }
+      });
+
+      if (error) {
+        toast({
+          title: "Signup failed",
+          description: error.message,
+          variant: "destructive",
+        });
+        return false;
+      }
+
+      if (data) {
+        toast({
+          title: "Registration successful",
+          description: "Your account has been created!",
+        });
         return true;
       }
+
       return false;
     } catch (error) {
       console.error('Signup error:', error);
+      toast({
+        title: "Registration error",
+        description: "An unexpected error occurred. Please try again.",
+        variant: "destructive",
+      });
       return false;
     } finally {
       setIsLoading(false);
     }
   };
 
-  const logout = () => {
+  const logout = async () => {
+    await supabase.auth.signOut();
     setUser(null);
-    localStorage.removeItem('user');
+    setSession(null);
   };
 
   return (
@@ -120,6 +167,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         signup,
         logout,
         isLoading,
+        session,
       }}
     >
       {children}
