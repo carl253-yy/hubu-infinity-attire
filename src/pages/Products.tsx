@@ -18,12 +18,17 @@ const ProductsPage = ({ products }: ProductsPageProps) => {
   const [showFilters, setShowFilters] = useState(false);
   const location = useLocation();
 
-  // Get unique categories from products
-  const categories = ['all', ...new Set(products.map(product => product.category))];
+  // Get unique categories from products (excluding "dresses" category)
+  const categories = ['all', ...new Set(products
+    .map(product => product.category)
+    .filter(category => category !== 'dresses'))];
   
   useEffect(() => {
     // Filter products based on search term and selected category
     let result = products;
+    
+    // Remove products with category "dresses"
+    result = result.filter(product => product.category !== 'dresses');
     
     if (searchTerm) {
       result = result.filter(product => 
@@ -81,7 +86,7 @@ const ProductsPage = ({ products }: ProductsPageProps) => {
                     : 'bg-white border border-gray-300 text-gray-700 hover:border-kenyan-brown'
                 }`}
               >
-                {category.charAt(0).toUpperCase() + category.slice(1)}
+                {category === 'all' ? 'Shop All' : category.charAt(0).toUpperCase() + category.slice(1)}
               </button>
             ))}
           </div>

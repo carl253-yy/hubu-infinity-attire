@@ -15,6 +15,7 @@ import Checkout from "./pages/Checkout";
 import Success from "./pages/Success";
 import CartPage from "./pages/CartPage";
 import Products from "./pages/Products";
+import SearchPage from "./pages/SearchPage"; // New search page
 import Navbar from "./components/Navbar";
 import Cart from "./components/Cart";
 import ProductDetail from "./components/ProductDetail";
@@ -35,14 +36,14 @@ const products: Product[] = [
   // Original prices converted from $ to KSh
   {
     id: 1,
-    name: "Healing Hands Men's Scrubs Top 3 Pocket V-Neck Athletic Fit",
+    name: "Men's Scrubs Top 3 Pocket V-Neck Athletic Fit",
     price: 1300,
     image: "https://media.licdn.com/dms/image/v2/D4D22AQHU4RFkFV7veQ/feedshare-shrink_800/B4DZZfSBBRGgAk-/0/1745355287285?e=1748476800&v=beta&t=DeWrJcJ_G8Dul5JnAyFJTF0V-7mEtFsi93D7DRTfoxI",
     category: "scrubs"
   },
   {
     id: 2,
-    name: "Medical Uniforms Nursing Uniforms New Design Stretchy Soft Short Sleeve",
+    name: "Nursing Uniform Stretchy Soft Short Sleeve",
     price: 1300,
     image: "https://media.licdn.com/dms/image/v2/D4D22AQFgTRuo6xIV1w/feedshare-shrink_2048_1536/B4DZZfSBAbH4Ao-/0/1745355287546?e=1748476800&v=beta&t=YmDkVSNQ54RmNK3HMFTgrHKxm0s2KyQaAUea1KtNcSE",
     category: "coats"
@@ -56,28 +57,28 @@ const products: Product[] = [
   },
   {
     id: 4,
-    name: "Green Surgical Scrubs",
+    name: "Surgical Scrubs",
     price: 1300,
     image: "https://media.licdn.com/dms/image/v2/D4D22AQEL8QwDRRm7Iw/feedshare-shrink_1280/B4DZZfSBA.G8Ak-/0/1745355286983?e=1748476800&v=beta&t=V3irlIOoo_mfeJT0PSpVc5IVsqVxJeX2P-jnbyuzLDc",
     category: "scrubs"
   },
   {
     id: 5,
-    name: "Brown Medical Uniform",
+    name: "Medical Uniform",
     price: 1300,
     image: "https://media.licdn.com/dms/image/v2/D4D22AQEq0bSEjta50A/feedshare-shrink_1280/B4DZZfSA_pHwAo-/0/1745355287182?e=1748476800&v=beta&t=cZYPKa9tSZjeSoONQkGubnYnm6pMPHQLW_g5SkaNZTY",
     category: "uniforms"
   },
   {
     id: 6,
-    name: "Designer Medical Dress",
+    name: "Designer Medical Outfit",
     price: 2500,
     image: "https://media.licdn.com/dms/image/v2/D4D22AQEOXRZSzU2Leg/feedshare-shrink_800/B4DZZfUlaPG4Ak-/0/1745355954681?e=1748476800&v=beta&t=I5H0lPhfc0GAXsxoe_3uOGEvDdkumjB3ti1-cCweFa4",
-    category: "dresses"
+    category: "sets"
   },
   {
     id: 7,
-    name: "Blue Pattern Scrubs",
+    name: "Pattern Scrubs",
     price: 2500,
     image: "https://media.licdn.com/dms/image/v2/D4D22AQFbXtg59oaimA/feedshare-shrink_800/B4DZZfUfP2HIBo-/0/1745355929947?e=1748476800&v=beta&t=hdfG3zBQQ6Va7xnrLTEzcmNk1BT-whTnMdMc7KQo7O4",
     category: "scrubs"
@@ -91,14 +92,14 @@ const products: Product[] = [
   },
   {
     id: 9,
-    name: "Modern Scrub Dress",
+    name: "Modern Scrub Set",
     price: 2500,
     image: "https://media.licdn.com/dms/image/v2/D4D22AQEw7Rha0yIC4Q/feedshare-shrink_1280/B4DZZfUfOrHIAk-/0/1745355929865?e=1748476800&v=beta&t=fj8PW-KtnHqQn0qaOR0FlKxHIak_FP0iHB1mz6Yl9Ak",
-    category: "dresses"
+    category: "sets"
   },
   {
     id: 10,
-    name: "Red Designer Blouse",
+    name: "Designer Blouse",
     price: 2500,
     image: "https://media.licdn.com/dms/image/v2/D4D22AQE8GYaLOXLZ6Q/feedshare-shrink_800/B4DZZfUfP1GwAg-/0/1745355929597?e=1748476800&v=beta&t=hQKTU6-hQhAmLNs4Epf-RU0elRqv45Pp3RKW7npuclo",
     category: "tops"
@@ -112,17 +113,17 @@ const products: Product[] = [
   },
   {
     id: 12,
-    name: "Purple Medical Uniform",
+    name: "Professional Medical Uniform",
     price: 2500,
     image: "https://media.licdn.com/dms/image/v2/D4D22AQG41S3kF1jElg/feedshare-shrink_800/B4DZZfUfOtG0Ag-/0/1745355929220?e=1748476800&v=beta&t=c7neXzGSDZfSeTIiTk3wDiN3MK_KXORVzNJ3hevqx1E",
     category: "uniforms"
   },
   {
     id: 13,
-    name: "Elegant Scrub Dress",
+    name: "Elegant Scrub Set",
     price: 2500,
     image: "https://media.licdn.com/dms/image/v2/D4D22AQG8RVcJxklpxg/feedshare-shrink_2048_1536/B4DZZfUU5.HwAo-/0/1745355887092?e=1748476800&v=beta&t=IiojYG2LLsqK-OtEj74Xhh9rT8xe5hyQngvSiA4R1R0",
-    category: "dresses"
+    category: "sets"
   },
   {
     id: 14,
@@ -133,7 +134,7 @@ const products: Product[] = [
   },
   {
     id: 15,
-    name: "Brown Medical Shirt",
+    name: "Professional Medical Shirt",
     price: 2500,
     image: "https://media.licdn.com/dms/image/v2/D4D22AQH2o5CqKRVe6g/feedshare-shrink_800/B4DZZfUU6XHwAg-/0/1745355888263?e=1748476800&v=beta&t=uthXc_kjrnQb4ZYW3vIR-4i_UG7l-rGLlbom4noNZcA",
     category: "shirts"
@@ -154,10 +155,10 @@ const products: Product[] = [
   },
   {
     id: 18,
-    name: "Blue Surgical Dress",
+    name: "Surgical Medical Set",
     price: 2500,
     image: "https://media.licdn.com/dms/image/v2/D4D22AQFcDp7CgVopfg/feedshare-shrink_2048_1536/B4DZZfUU6THIAs-/0/1745355887713?e=1748476800&v=beta&t=Kch-QmDT9VjST1y2ibCilSRsfmccFcwSuuzimC7s6wY",
-    category: "dresses"
+    category: "sets"
   },
   {
     id: 19,
@@ -168,10 +169,10 @@ const products: Product[] = [
   },
   {
     id: 20,
-    name: "Summer Scrub Dress",
+    name: "Summer Scrub Set",
     price: 2500,
     image: "https://media.licdn.com/dms/image/v2/D4D22AQFPpgCSpQx51w/feedshare-shrink_800/B4DZZfUlaGG4Ak-/0/1745355954787?e=1748476800&v=beta&t=DHxNUcSA13aAMVY0K15onH2ACcO5YU-mGzpmNRYuxBw",
-    category: "dresses"
+    category: "sets"
   },
   // Additional products
   {
@@ -256,6 +257,11 @@ const App = () => {
                     <Route path="/products" element={
                       <ProtectedRoute>
                         <Products products={products} />
+                      </ProtectedRoute>
+                    } />
+                    <Route path="/search" element={
+                      <ProtectedRoute>
+                        <SearchPage products={products} />
                       </ProtectedRoute>
                     } />
                     <Route path="/product/:id" element={

@@ -1,18 +1,29 @@
 
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { ShoppingCart, User, Search, Menu, X } from 'lucide-react';
 import { useCart } from '@/context/CartContext';
 import { useAuth } from '@/context/AuthContext';
+import { Input } from '@/components/ui/input';
 
 const Navbar = () => {
   const { cartCount } = useCart();
   const { isAuthenticated, user, logout } = useAuth();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [searchTerm, setSearchTerm] = useState('');
+  const navigate = useNavigate();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+  };
+
+  const handleSearch = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (searchTerm.trim()) {
+      navigate(`/search?q=${encodeURIComponent(searchTerm)}`);
+      setSearchTerm('');
+    }
   };
 
   return (
@@ -38,6 +49,9 @@ const Navbar = () => {
                 Categories
               </span>
               <div className="absolute hidden group-hover:block bg-white shadow-lg rounded-md p-4 w-48 z-50">
+                <Link to="/products" className="block py-2 text-gray-700 hover:text-kenyan-red">
+                  Shop All
+                </Link>
                 <Link to="/category/scrubs" className="block py-2 text-gray-700 hover:text-kenyan-red">
                   Scrubs
                 </Link>
@@ -53,8 +67,8 @@ const Navbar = () => {
                 <Link to="/category/sets" className="block py-2 text-gray-700 hover:text-kenyan-red">
                   Sets
                 </Link>
-                <Link to="/category/dresses" className="block py-2 text-gray-700 hover:text-kenyan-red">
-                  Dresses
+                <Link to="/category/shirts" className="block py-2 text-gray-700 hover:text-kenyan-red">
+                  Shirts
                 </Link>
               </div>
             </div>
@@ -63,11 +77,21 @@ const Navbar = () => {
           {/* Action Buttons */}
           <div className="flex items-center space-x-4">
             <div className="hidden md:block">
-              <Link to="/search">
-                <Button variant="ghost" size="icon" aria-label="Search">
+              <form onSubmit={handleSearch} className="flex">
+                <div className="relative">
+                  <Input
+                    type="text"
+                    placeholder="Search..."
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                    className="w-40 pl-8 h-9"
+                  />
+                  <Search className="absolute left-2 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
+                </div>
+                <Button type="submit" variant="ghost" size="icon" className="ml-1">
                   <Search className="h-5 w-5" />
                 </Button>
-              </Link>
+              </form>
             </div>
 
             <div className="hidden md:block">
@@ -133,6 +157,22 @@ const Navbar = () => {
       {/* Mobile Navigation */}
       {isMenuOpen && (
         <div className="md:hidden bg-white px-4 py-4 shadow-lg">
+          <form onSubmit={handleSearch} className="mb-4">
+            <div className="flex">
+              <div className="relative flex-grow">
+                <Input
+                  type="text"
+                  placeholder="Search products..."
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  className="pl-8"
+                />
+                <Search className="absolute left-2 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
+              </div>
+              <Button type="submit" size="sm" className="ml-1">Search</Button>
+            </div>
+          </form>
+          
           <nav className="flex flex-col space-y-4">
             <Link 
               to="/"
@@ -180,6 +220,20 @@ const Navbar = () => {
               onClick={() => setIsMenuOpen(false)}
             >
               Uniforms
+            </Link>
+            <Link 
+              to="/category/sets"
+              className="pl-3 text-gray-700 hover:text-kenyan-brown"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Sets
+            </Link>
+            <Link 
+              to="/category/shirts"
+              className="pl-3 text-gray-700 hover:text-kenyan-brown"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Shirts
             </Link>
             
             <div className="border-t border-gray-200 pt-2">

@@ -36,7 +36,10 @@ const ProductCard = ({ product }: ProductCardProps) => {
             size="sm" 
             variant="ghost"
             className="text-kenyan-brown hover:text-kenyan-red hover:bg-transparent"
-            onClick={() => addToCart(product)}
+            onClick={(e) => {
+              e.preventDefault();
+              addToCart(product);
+            }}
           >
             <ShoppingCart className="h-4 w-4" />
           </Button>
