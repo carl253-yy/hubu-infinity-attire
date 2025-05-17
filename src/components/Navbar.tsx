@@ -6,6 +6,7 @@ import { ShoppingCart, User, Search, Menu, X } from 'lucide-react';
 import { useCart } from '@/context/CartContext';
 import { useAuth } from '@/context/AuthContext';
 import { Input } from '@/components/ui/input';
+import ThemeToggle from './ThemeToggle';
 
 const Navbar = () => {
   const { cartCount } = useCart();
@@ -27,7 +28,7 @@ const Navbar = () => {
   };
 
   return (
-    <header className="sticky top-0 z-40 w-full bg-white shadow-sm">
+    <header className="sticky top-0 z-40 w-full bg-background border-b border-border shadow-sm">
       <div className="container mx-auto px-4">
         <div className="flex h-16 items-center justify-between">
           <div className="flex items-center">
@@ -38,36 +39,36 @@ const Navbar = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            <Link to="/" className="text-gray-700 hover:text-kenyan-brown font-medium">
+            <Link to="/" className="text-foreground hover:text-kenyan-brown font-medium">
               Home
             </Link>
-            <Link to="/products" className="text-gray-700 hover:text-kenyan-brown font-medium">
+            <Link to="/products" className="text-foreground hover:text-kenyan-brown font-medium">
               Shop All
             </Link>
             <div className="group relative inline-block">
-              <span className="text-gray-700 hover:text-kenyan-brown font-medium cursor-pointer">
+              <span className="text-foreground hover:text-kenyan-brown font-medium cursor-pointer">
                 Categories
               </span>
-              <div className="absolute hidden group-hover:block bg-white shadow-lg rounded-md p-4 w-48 z-50">
-                <Link to="/products" className="block py-2 text-gray-700 hover:text-kenyan-red">
+              <div className="absolute hidden group-hover:block bg-background shadow-lg rounded-md p-4 w-48 z-50">
+                <Link to="/products" className="block py-2 text-foreground hover:text-kenyan-red">
                   Shop All
                 </Link>
-                <Link to="/category/scrubs" className="block py-2 text-gray-700 hover:text-kenyan-red">
+                <Link to="/category/scrubs" className="block py-2 text-foreground hover:text-kenyan-red">
                   Scrubs
                 </Link>
-                <Link to="/category/coats" className="block py-2 text-gray-700 hover:text-kenyan-red">
+                <Link to="/category/coats" className="block py-2 text-foreground hover:text-kenyan-red">
                   Lab Coats
                 </Link>
-                <Link to="/category/tops" className="block py-2 text-gray-700 hover:text-kenyan-red">
+                <Link to="/category/tops" className="block py-2 text-foreground hover:text-kenyan-red">
                   Medical Tops
                 </Link>
-                <Link to="/category/uniforms" className="block py-2 text-gray-700 hover:text-kenyan-red">
+                <Link to="/category/uniforms" className="block py-2 text-foreground hover:text-kenyan-red">
                   Uniforms
                 </Link>
-                <Link to="/category/sets" className="block py-2 text-gray-700 hover:text-kenyan-red">
+                <Link to="/category/sets" className="block py-2 text-foreground hover:text-kenyan-red">
                   Sets
                 </Link>
-                <Link to="/category/shirts" className="block py-2 text-gray-700 hover:text-kenyan-red">
+                <Link to="/category/shirts" className="block py-2 text-foreground hover:text-kenyan-red">
                   Shirts
                 </Link>
               </div>
@@ -75,7 +76,7 @@ const Navbar = () => {
           </nav>
 
           {/* Action Buttons */}
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-2">
             <div className="hidden md:block">
               <form onSubmit={handleSearch} className="flex">
                 <div className="relative">
@@ -86,7 +87,7 @@ const Navbar = () => {
                     onChange={(e) => setSearchTerm(e.target.value)}
                     className="w-40 pl-8 h-9"
                   />
-                  <Search className="absolute left-2 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
+                  <Search className="absolute left-2 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                 </div>
                 <Button type="submit" variant="ghost" size="icon" className="ml-1">
                   <Search className="h-5 w-5" />
@@ -94,25 +95,27 @@ const Navbar = () => {
               </form>
             </div>
 
+            <ThemeToggle />
+
             <div className="hidden md:block">
               {isAuthenticated ? (
                 <div className="relative group">
                   <Button variant="ghost" size="icon" className="relative" aria-label="User account">
                     <User className="h-5 w-5" />
                   </Button>
-                  <div className="absolute right-0 hidden group-hover:block bg-white shadow-lg rounded-md p-4 w-48 z-50">
-                    <div className="px-2 py-2 text-sm font-medium text-gray-600">
+                  <div className="absolute right-0 hidden group-hover:block bg-background shadow-lg rounded-md p-4 w-48 z-50">
+                    <div className="px-2 py-2 text-sm font-medium text-muted-foreground">
                       Hello, {user?.name || user?.email}
                     </div>
-                    <Link to="/profile" className="block w-full text-left px-2 py-2 text-sm text-gray-700 hover:text-kenyan-red">
+                    <Link to="/profile" className="block w-full text-left px-2 py-2 text-sm text-foreground hover:text-kenyan-red">
                       My Profile
                     </Link>
-                    <Link to="/orders" className="block w-full text-left px-2 py-2 text-sm text-gray-700 hover:text-kenyan-red">
+                    <Link to="/orders" className="block w-full text-left px-2 py-2 text-sm text-foreground hover:text-kenyan-red">
                       My Orders
                     </Link>
                     <button
                       onClick={logout}
-                      className="w-full text-left px-2 py-2 text-sm text-gray-700 hover:text-kenyan-red"
+                      className="w-full text-left px-2 py-2 text-sm text-foreground hover:text-kenyan-red"
                     >
                       Logout
                     </button>
@@ -156,7 +159,7 @@ const Navbar = () => {
 
       {/* Mobile Navigation */}
       {isMenuOpen && (
-        <div className="md:hidden bg-white px-4 py-4 shadow-lg">
+        <div className="md:hidden bg-background px-4 py-4 shadow-lg">
           <form onSubmit={handleSearch} className="mb-4">
             <div className="flex">
               <div className="relative flex-grow">
@@ -167,7 +170,7 @@ const Navbar = () => {
                   onChange={(e) => setSearchTerm(e.target.value)}
                   className="pl-8"
                 />
-                <Search className="absolute left-2 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
+                <Search className="absolute left-2 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
               </div>
               <Button type="submit" size="sm" className="ml-1">Search</Button>
             </div>
@@ -176,80 +179,80 @@ const Navbar = () => {
           <nav className="flex flex-col space-y-4">
             <Link 
               to="/"
-              className="text-gray-700 hover:text-kenyan-brown font-medium"
+              className="text-foreground hover:text-kenyan-brown font-medium"
               onClick={() => setIsMenuOpen(false)}
             >
               Home
             </Link>
             <Link 
               to="/products"
-              className="text-gray-700 hover:text-kenyan-brown font-medium"
+              className="text-foreground hover:text-kenyan-brown font-medium"
               onClick={() => setIsMenuOpen(false)}
             >
               Shop All
             </Link>
             
-            <div className="border-t border-gray-200 pt-3 pb-1">
-              <p className="text-sm text-gray-500">Categories</p>
+            <div className="border-t border-border pt-3 pb-1">
+              <p className="text-sm text-muted-foreground">Categories</p>
             </div>
             
             <Link 
               to="/category/scrubs"
-              className="pl-3 text-gray-700 hover:text-kenyan-brown"
+              className="pl-3 text-foreground hover:text-kenyan-brown"
               onClick={() => setIsMenuOpen(false)}
             >
               Scrubs
             </Link>
             <Link 
               to="/category/coats"
-              className="pl-3 text-gray-700 hover:text-kenyan-brown"
+              className="pl-3 text-foreground hover:text-kenyan-brown"
               onClick={() => setIsMenuOpen(false)}
             >
               Lab Coats
             </Link>
             <Link 
               to="/category/tops"
-              className="pl-3 text-gray-700 hover:text-kenyan-brown"
+              className="pl-3 text-foreground hover:text-kenyan-brown"
               onClick={() => setIsMenuOpen(false)}
             >
               Medical Tops
             </Link>
             <Link 
               to="/category/uniforms"
-              className="pl-3 text-gray-700 hover:text-kenyan-brown"
+              className="pl-3 text-foreground hover:text-kenyan-brown"
               onClick={() => setIsMenuOpen(false)}
             >
               Uniforms
             </Link>
             <Link 
               to="/category/sets"
-              className="pl-3 text-gray-700 hover:text-kenyan-brown"
+              className="pl-3 text-foreground hover:text-kenyan-brown"
               onClick={() => setIsMenuOpen(false)}
             >
               Sets
             </Link>
             <Link 
               to="/category/shirts"
-              className="pl-3 text-gray-700 hover:text-kenyan-brown"
+              className="pl-3 text-foreground hover:text-kenyan-brown"
               onClick={() => setIsMenuOpen(false)}
             >
               Shirts
             </Link>
             
-            <div className="border-t border-gray-200 pt-2">
+            <div className="border-t border-border pt-2">
               {isAuthenticated ? (
                 <>
-                  <p className="text-sm text-gray-500 mb-2">Account</p>
+                  <p className="text-sm text-muted-foreground mb-2">Account</p>
                   <Link 
                     to="/profile"
-                    className="block py-2 text-gray-700 hover:text-kenyan-brown"
+                    className="block py-2 text-foreground hover:text-kenyan-brown"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     My Profile
                   </Link>
                   <Link 
                     to="/orders"
-                    className="block py-2 text-gray-700 hover:text-kenyan-brown"
+                    className="block py-2 text-foreground hover:text-kenyan-brown"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     My Orders
@@ -259,7 +262,7 @@ const Navbar = () => {
                       logout();
                       setIsMenuOpen(false);
                     }}
-                    className="block py-2 text-gray-700 hover:text-kenyan-brown"
+                    className="block py-2 text-foreground hover:text-kenyan-brown"
                   >
                     Logout
                   </button>
@@ -267,7 +270,7 @@ const Navbar = () => {
               ) : (
                 <Link 
                   to="/login"
-                  className="block py-2 text-gray-700 hover:text-kenyan-brown"
+                  className="block py-2 text-foreground hover:text-kenyan-brown"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Login / Register

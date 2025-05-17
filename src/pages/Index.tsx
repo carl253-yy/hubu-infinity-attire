@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -263,7 +262,7 @@ const Index = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
             <Link to="/category/scrubs" className="group">
               <div className="relative overflow-hidden rounded-lg aspect-square">
                 <img 
@@ -273,19 +272,6 @@ const Index = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-4">
                   <h3 className="text-white font-semibold text-lg">Scrubs</h3>
-                </div>
-              </div>
-            </Link>
-
-            <Link to="/category/coats" className="group">
-              <div className="relative overflow-hidden rounded-lg aspect-square">
-                <img 
-                  src="https://media.licdn.com/dms/image/v2/D4D22AQF5qKU0SQw_tw/feedshare-shrink_1280/B4DZZfUfO8G4Ak-/0/1745355929876?e=1748476800&v=beta&t=w80HizN1X0lILrD9vBG3qjh2IpLc-BCK_aEqcHRHtAU" 
-                  alt="Coats" 
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-4">
-                  <h3 className="text-white font-semibold text-lg">Lab Coats</h3>
                 </div>
               </div>
             </Link>

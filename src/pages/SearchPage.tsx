@@ -34,7 +34,10 @@ const SearchPage = ({ products }: SearchPageProps) => {
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
-    setSearchParams({ q: searchTerm });
+    if (searchTerm.trim()) {
+      // Update URL params without navigating away from the page
+      setSearchParams({ q: searchTerm });
+    }
   };
 
   return (
@@ -51,7 +54,7 @@ const SearchPage = ({ products }: SearchPageProps) => {
               onChange={(e) => setSearchTerm(e.target.value)}
               className="pl-10"
             />
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
           </div>
           <Button type="submit">Search</Button>
         </div>
@@ -59,7 +62,7 @@ const SearchPage = ({ products }: SearchPageProps) => {
 
       {query ? (
         <>
-          <p className="text-sm text-gray-500 mb-4">
+          <p className="text-sm text-muted-foreground mb-4">
             {results.length} {results.length === 1 ? 'result' : 'results'} for "{query}"
           </p>
 
@@ -71,13 +74,13 @@ const SearchPage = ({ products }: SearchPageProps) => {
             </div>
           ) : (
             <div className="text-center py-12">
-              <p className="text-lg text-gray-600">No products found matching your search.</p>
+              <p className="text-lg text-muted-foreground">No products found matching your search.</p>
             </div>
           )}
         </>
       ) : (
         <div className="text-center py-12">
-          <p className="text-lg text-gray-600">Enter a search term to find products.</p>
+          <p className="text-lg text-muted-foreground">Enter a search term to find products.</p>
         </div>
       )}
     </div>
