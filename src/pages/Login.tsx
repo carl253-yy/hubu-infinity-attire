@@ -17,11 +17,12 @@ const Login = () => {
   const location = useLocation();
 
   // Get redirect path from location state or default to home
-  const redirectPath = location.state?.from || '/';
+  const redirectPath = location.state?.from || '/products';
   
   // Redirect if already authenticated
   useEffect(() => {
     if (isAuthenticated && !isLoading) {
+      console.log("User is authenticated, redirecting to:", redirectPath);
       navigate(redirectPath);
     }
   }, [isAuthenticated, isLoading, navigate, redirectPath]);
@@ -35,19 +36,23 @@ const Login = () => {
       return;
     }
 
+    console.log("Submitting login form with email:", email);
     try {
       const success = await login(email, password);
       
       if (success) {
+        console.log("Login successful, redirecting to:", redirectPath);
         toast({
           title: "Login successful",
           description: "Welcome back!",
         });
         navigate(redirectPath);
       } else {
+        console.log("Login failed");
         setError('Login failed. Please check your credentials.');
       }
     } catch (error) {
+      console.error("Login error:", error);
       setError('An unexpected error occurred. Please try again.');
     }
   };
@@ -63,14 +68,14 @@ const Login = () => {
 
   return (
     <div className="container mx-auto px-4 py-16 max-w-md">
-      <div className="bg-white p-8 rounded-lg shadow-sm border">
+      <div className="bg-background p-8 rounded-lg shadow-sm border">
         <div className="text-center mb-6">
           <h1 className="text-2xl font-bold">Login to Your Account</h1>
-          <p className="text-gray-600 mt-2">
+          <p className="text-foreground/80 mt-2">
             Enter your credentials to access HUBU INFINITY SCRUBS
           </p>
           {location.state?.from && (
-            <div className="mt-3 p-3 bg-amber-50 text-amber-700 rounded-md text-sm">
+            <div className="mt-3 p-3 bg-amber-50 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300 rounded-md text-sm">
               <AlertCircle className="inline-block w-4 h-4 mr-1" />
               You need to sign in to access this page
             </div>
@@ -79,17 +84,17 @@ const Login = () => {
 
         <form onSubmit={handleSubmit} className="space-y-4">
           {error && (
-            <div className="bg-red-50 text-red-600 p-3 rounded-md text-sm">
+            <div className="bg-destructive/10 text-destructive p-3 rounded-md text-sm">
               {error}
             </div>
           )}
 
           <div className="relative">
-            <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+            <label htmlFor="email" className="block text-sm font-medium text-foreground/80 mb-1">
               Email Address
             </label>
             <div className="relative">
-              <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
+              <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-foreground/50" />
               <Input
                 id="email"
                 type="email"
@@ -104,11 +109,11 @@ const Login = () => {
           </div>
 
           <div>
-            <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-1">
+            <label htmlFor="password" className="block text-sm font-medium text-foreground/80 mb-1">
               Password
             </label>
             <div className="relative">
-              <LockKeyhole className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
+              <LockKeyhole className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-foreground/50" />
               <Input
                 id="password"
                 type="password"
@@ -132,7 +137,7 @@ const Login = () => {
         </form>
 
         <div className="mt-6 text-center text-sm">
-          <p className="text-gray-600">
+          <p className="text-foreground/80">
             Don't have an account?{' '}
             <Link to="/register" className="text-kenyan-brown font-semibold hover:underline">
               Register now
