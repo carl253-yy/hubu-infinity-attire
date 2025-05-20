@@ -35,18 +35,22 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   // Initialize authentication state
   useEffect(() => {
+    console.log("Setting up auth state listener");
+    
     // Set up auth state listener FIRST
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
       (event, newSession) => {
         console.log("Auth state changed:", event, newSession);
         setSession(newSession);
         if (newSession?.user) {
+          console.log("User authenticated:", newSession.user);
           setUser({
             id: newSession.user.id,
             email: newSession.user.email || '',
             name: newSession.user.user_metadata?.name || newSession.user.email?.split('@')[0] || '',
           });
         } else {
+          console.log("User not authenticated");
           setUser(null);
         }
       }
@@ -54,9 +58,10 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
     // THEN check for existing session
     supabase.auth.getSession().then(({ data: { session: currentSession } }) => {
-      console.log("Checking existing session:", currentSession);
+      console.log("Initial session check:", currentSession);
       setSession(currentSession);
       if (currentSession?.user) {
+        console.log("Initial user:", currentSession.user);
         setUser({
           id: currentSession.user.id,
           email: currentSession.user.email || '',
@@ -67,6 +72,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     });
 
     return () => {
+      console.log("Cleaning up auth listener");
       subscription.unsubscribe();
     };
   }, []);
@@ -82,11 +88,23 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
       if (error) {
         console.error("Login error:", error);
-        toast({
-          title: "Login failed",
-          description: error.message,
-          variant: "destructive",
-        });
+        
+        // Provide more specific error messages based on error code
+        if (error.message.includes("Invalid login credentials")) {
+          toast({
+            title: "Login failed",
+            description: "Incorrect email or password. Please try again.",
+            variant: "destructive",
+          });
+        } else {
+          toast({
+            title: "Login failed",
+            description: error.message,
+            variant: "destructive",
+          });
+        }
+        
+        setIsLoading(false);
         return false;
       }
 
@@ -99,6 +117,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         return true;
       }
 
+      setIsLoading(false);
       return false;
     } catch (error) {
       console.error('Login error:', error);
@@ -107,9 +126,8 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         description: "An unexpected error occurred. Please try again.",
         variant: "destructive",
       });
-      return false;
-    } finally {
       setIsLoading(false);
+      return false;
     }
   };
 
@@ -134,18 +152,31 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
           description: error.message,
           variant: "destructive",
         });
+        setIsLoading(false);
         return false;
       }
 
       if (data) {
         console.log("Signup successful:", data);
-        toast({
-          title: "Registration successful",
-          description: "Your account has been created!",
-        });
+        
+        // Check if email confirmation is required
+        if (data.session === null && data.user?.confirmation_sent_at) {
+          toast({
+            title: "Registration successful",
+            description: "Please check your email to confirm your account before logging in.",
+          });
+        } else {
+          toast({
+            title: "Registration successful",
+            description: "Your account has been created!",
+          });
+        }
+        
+        setIsLoading(false);
         return true;
       }
 
+      setIsLoading(false);
       return false;
     } catch (error) {
       console.error('Signup error:', error);
@@ -154,17 +185,22 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         description: "An unexpected error occurred. Please try again.",
         variant: "destructive",
       });
-      return false;
-    } finally {
       setIsLoading(false);
+      return false;
     }
   };
 
   const logout = async () => {
     console.log("Logging out");
+    setIsLoading(true);
     await supabase.auth.signOut();
     setUser(null);
     setSession(null);
+    setIsLoading(false);
+    toast({
+      title: "Logged out",
+      description: "You have been successfully logged out.",
+    });
   };
 
   return (

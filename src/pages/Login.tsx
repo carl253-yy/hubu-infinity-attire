@@ -17,7 +17,7 @@ const Login = () => {
   const location = useLocation();
 
   // Get redirect path from location state or default to home
-  const redirectPath = location.state?.from || '/products';
+  const redirectPath = location.state?.from || '/';
   
   // Redirect if already authenticated
   useEffect(() => {
@@ -40,17 +40,11 @@ const Login = () => {
     try {
       const success = await login(email, password);
       
-      if (success) {
-        console.log("Login successful, redirecting to:", redirectPath);
-        toast({
-          title: "Login successful",
-          description: "Welcome back!",
-        });
-        navigate(redirectPath);
-      } else {
+      if (!success) {
         console.log("Login failed");
         setError('Login failed. Please check your credentials.');
       }
+      // Note: We don't navigate here as the auth state change will trigger the useEffect that navigates
     } catch (error) {
       console.error("Login error:", error);
       setError('An unexpected error occurred. Please try again.');

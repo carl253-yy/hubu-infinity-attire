@@ -42,11 +42,8 @@ const Register = () => {
       const success = await signup(email, password, name);
       
       if (success) {
-        toast({
-          title: "Registration successful",
-          description: "Your account has been created!",
-        });
-        navigate('/');
+        // Navigate to login page if signup was successful but requires email verification
+        navigate('/login');
       } else {
         setError('Registration failed. Please try again with different credentials.');
       }
@@ -66,27 +63,27 @@ const Register = () => {
 
   return (
     <div className="container mx-auto px-4 py-16 max-w-md">
-      <div className="bg-white p-8 rounded-lg shadow-sm border">
+      <div className="bg-background p-8 rounded-lg shadow-sm border">
         <div className="text-center mb-6">
           <h1 className="text-2xl font-bold">Create an Account</h1>
-          <p className="text-gray-600 mt-2">
+          <p className="text-foreground/80 mt-2">
             Join Hubu Infinity Scrubs for the best medical apparel
           </p>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-4">
           {error && (
-            <div className="bg-red-50 text-red-600 p-3 rounded-md text-sm">
+            <div className="bg-destructive/10 text-destructive p-3 rounded-md text-sm">
               {error}
             </div>
           )}
 
           <div>
-            <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+            <label htmlFor="name" className="block text-sm font-medium text-foreground/80 mb-1">
               Full Name
             </label>
             <div className="relative">
-              <User className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
+              <User className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-foreground/50" />
               <Input
                 id="name"
                 type="text"
@@ -101,11 +98,11 @@ const Register = () => {
           </div>
 
           <div>
-            <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+            <label htmlFor="email" className="block text-sm font-medium text-foreground/80 mb-1">
               Email Address
             </label>
             <div className="relative">
-              <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
+              <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-foreground/50" />
               <Input
                 id="email"
                 type="email"
@@ -120,11 +117,11 @@ const Register = () => {
           </div>
 
           <div>
-            <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-1">
+            <label htmlFor="password" className="block text-sm font-medium text-foreground/80 mb-1">
               Password
             </label>
             <div className="relative">
-              <LockKeyhole className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
+              <LockKeyhole className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-foreground/50" />
               <Input
                 id="password"
                 type="password"
@@ -140,11 +137,11 @@ const Register = () => {
           </div>
 
           <div>
-            <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-700 mb-1">
+            <label htmlFor="confirmPassword" className="block text-sm font-medium text-foreground/80 mb-1">
               Confirm Password
             </label>
             <div className="relative">
-              <LockKeyhole className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
+              <LockKeyhole className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-foreground/50" />
               <Input
                 id="confirmPassword"
                 type="password"
@@ -168,7 +165,7 @@ const Register = () => {
         </form>
 
         <div className="mt-6 text-center text-sm">
-          <p className="text-gray-600">
+          <p className="text-foreground/80">
             Already have an account?{' '}
             <Link to="/login" className="text-kenyan-brown font-semibold hover:underline">
               Sign in

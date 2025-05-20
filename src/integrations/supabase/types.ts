@@ -24,6 +24,51 @@ export type Database = {
         }
         Relationships: []
       }
+      dating_profiles: {
+        Row: {
+          age: number
+          bio: string | null
+          created_at: string
+          email: string
+          gender: string
+          id: string
+          images: Json | null
+          interested_in: Json
+          is_premium: boolean | null
+          location: string | null
+          name: string
+          sexual_orientation: Json
+        }
+        Insert: {
+          age: number
+          bio?: string | null
+          created_at?: string
+          email: string
+          gender: string
+          id?: string
+          images?: Json | null
+          interested_in: Json
+          is_premium?: boolean | null
+          location?: string | null
+          name: string
+          sexual_orientation: Json
+        }
+        Update: {
+          age?: number
+          bio?: string | null
+          created_at?: string
+          email?: string
+          gender?: string
+          id?: string
+          images?: Json | null
+          interested_in?: Json
+          is_premium?: boolean | null
+          location?: string | null
+          name?: string
+          sexual_orientation?: Json
+        }
+        Relationships: []
+      }
       profiles: {
         Row: {
           full_name: string | null
