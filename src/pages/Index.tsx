@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { ShoppingCart } from 'lucide-react';
+import { ShoppingCart, Facebook } from 'lucide-react';
 import ProductCard from '@/components/ProductCard';
 import { Product } from '@/types';
 import { useCart } from '@/context/CartContext';
@@ -310,6 +310,26 @@ const Index = () => {
                   className="absolute inset-0 w-full h-full object-cover"
                 />
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Quick Links Section */}
+      <section className="py-8 bg-white border-b">
+        <div className="container mx-auto px-4">
+          <div className="text-center">
+            <h2 className="text-2xl font-bold mb-6 text-gray-900">Quick Links</h2>
+            <div className="flex justify-center">
+              <a 
+                href="https://www.facebook.com/profile.php?id=100070408316570&mibextid=rS40aB7S9Ucbxw6v"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition-colors"
+              >
+                <Facebook className="h-5 w-5" />
+                Follow us on Facebook
+              </a>
             </div>
           </div>
         </div>
