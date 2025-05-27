@@ -148,7 +148,6 @@ const products: Product[] = [
     image: "https://media.licdn.com/dms/image/v2/D4D22AQFPpgCSpQx51w/feedshare-shrink_800/B4DZZfUlaGG4Ak-/0/1745355954787?e=1748476800&v=beta&t=DHxNUcSA13aAMVY0K15onH2ACcO5YU-mGzpmNRYuxBw",
     category: "dresses"
   },
-  // New clothing items
   {
     id: 21,
     name: "Premium Surgical Scrubs",
@@ -204,6 +203,55 @@ const products: Product[] = [
     price: 1300,
     image: "https://media.licdn.com/dms/image/v2/D4D22AQEFnYUkq_jAgg/feedshare-shrink_1280/B4DZahpFiMHQAo-/0/1746468635307?e=1749081600&v=beta&t=L9jGDuMF7osjEx7nn6OlV7_hmWp1oQUa19bKGKL2K00",
     category: "sets"
+  },
+  {
+    id: 29,
+    name: "Surgical Cap",
+    price: 800,
+    image: "https://media.licdn.com/dms/image/v2/D4D22AQEL8QwDRRm7Iw/feedshare-shrink_1280/B4DZZfSBA.G8Ak-/0/1745355286983?e=1748476800&v=beta&t=V3irlIOoo_mfeJT0PSpVc5IVsqVxJeX2P-jnbyuzLDc",
+    category: "caps"
+  },
+  {
+    id: 30,
+    name: "Theatre Wear Set",
+    price: 3000,
+    image: "https://media.licdn.com/dms/image/v2/D4D22AQFgTRuo6xIV1w/feedshare-shrink_2048_1536/B4DZZfSBAbH4Ao-/0/1745355287546?e=1748476800&v=beta&t=YmDkVSNQ54RmNK3HMFTgrHKxm0s2KyQaAUea1KtNcSE",
+    category: "theatre"
+  },
+  {
+    id: 31,
+    name: "Infinity Jacket",
+    price: 3500,
+    image: "https://media.licdn.com/dms/image/v2/D4D22AQF-DHslLDpIqQ/feedshare-shrink_800/B4DZZfSBA0G8Ag-/0/1745355288159?e=1748476800&v=beta&t=8Axtzi_N6Ff-s8pJ-tJtIvMWwDIldztXgTbLpVVlgJQ",
+    category: "jackets"
+  },
+  {
+    id: 32,
+    name: "Clinical Coat",
+    price: 4000,
+    image: "https://media.licdn.com/dms/image/v2/D4D22AQEq0bSEjta50A/feedshare-shrink_1280/B4DZZfSA_pHwAo-/0/1745355287182?e=1748476800&v=beta&t=cZYPKa9tSZjeSoONQkGubnYnm6pMPHQLW_g5SkaNZTY",
+    category: "clinical-coats"
+  },
+  {
+    id: 33,
+    name: "Blood Pressure Monitor",
+    price: 5000,
+    image: "https://media.licdn.com/dms/image/v2/D4D22AQHU4RFkFV7veQ/feedshare-shrink_800/B4DZZfSBBRGgAk-/0/1745355287285?e=1748476800&v=beta&t=DeWrJcJ_G8Dul5JnAyFJTF0V-7mEtFsi93D7DRTfoxI",
+    category: "accessories"
+  },
+  {
+    id: 34,
+    name: "Stethoscope",
+    price: 6000,
+    image: "https://media.licdn.com/dms/image/v2/D4D22AQFgTRuo6xIV1w/feedshare-shrink_2048_1536/B4DZZfSBAbH4Ao-/0/1745355287546?e=1748476800&v=beta&t=YmDkVSNQ54RmNK3HMFTgrHKxm0s2KyQaAUea1KtNcSE",
+    category: "accessories"
+  },
+  {
+    id: 35,
+    name: "Medical Crocs",
+    price: 2500,
+    image: "https://media.licdn.com/dms/image/v2/D4D22AQF-DHslLDpIqQ/feedshare-shrink_800/B4DZZfSBA0G8Ag-/0/1745355288159?e=1748476800&v=beta&t=8Axtzi_N6Ff-s8pJ-tJtIvMWwDIldztXgTbLpVVlgJQ",
+    category: "footwear"
   }
 ];
 
@@ -213,6 +261,7 @@ const Index = () => {
   
   return (
     <>
+      {/* Hero Section */}
       <section className="relative bg-kenyan-sand py-16 md:py-24">
         <div className="container mx-auto px-4 relative z-10">
           <div className="grid md:grid-cols-2 gap-8 items-center">
@@ -221,7 +270,7 @@ const Index = () => {
                 HUBU INFINITY SCRUBS
               </h1>
               <p className="text-lg mb-8 text-gray-700">
-                Premium quality medical scrubs and uniforms for healthcare professionals. Designed for comfort, durability, and style for doctors, nurses, and medical staff.
+                Experience comfort and durability with our medical clothing. Crafted with quality materials, our attire ensures functionality and style, providing you with confidence and professionalism through your demanding shifts.
               </p>
               <div className="flex flex-wrap gap-4">
                 <Link to="/products">
@@ -250,79 +299,289 @@ const Index = () => {
             </div>
           </div>
         </div>
-        <div className="pattern-bg absolute inset-0 opacity-50"></div>
       </section>
 
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4">Featured Categories</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              Explore our collection of premium medical scrubs and uniforms designed specifically for healthcare professionals.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-            <Link to="/category/scrubs" className="group">
-              <div className="relative overflow-hidden rounded-lg aspect-square">
-                <img 
-                  src="https://media.licdn.com/dms/image/v2/D4D22AQEL8QwDRRm7Iw/feedshare-shrink_1280/B4DZZfSBA.G8Ak-/0/1745355286983?e=1748476800&v=beta&t=V3irlIOoo_mfeJT0PSpVc5IVsqVxJeX2P-jnbyuzLDc" 
-                  alt="Scrubs" 
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-4">
-                  <h3 className="text-white font-semibold text-lg">Scrubs</h3>
-                </div>
-              </div>
-            </Link>
-
-            <Link to="/category/tops" className="group">
-              <div className="relative overflow-hidden rounded-lg aspect-square">
-                <img 
-                  src="https://media.licdn.com/dms/image/v2/D4D22AQE8GYaLOXLZ6Q/feedshare-shrink_800/B4DZZfUfP1GwAg-/0/1745355929597?e=1748476800&v=beta&t=hQKTU6-hQhAmLNs4Epf-RU0elRqv45Pp3RKW7npuclo" 
-                  alt="Tops" 
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-4">
-                  <h3 className="text-white font-semibold text-lg">Medical Tops</h3>
-                </div>
-              </div>
-            </Link>
-
-            <Link to="/category/uniforms" className="group">
-              <div className="relative overflow-hidden rounded-lg aspect-square">
-                <img 
-                  src="https://media.licdn.com/dms/image/v2/D4D22AQG41S3kF1jElg/feedshare-shrink_800/B4DZZfUfOtG0Ag-/0/1745355929220?e=1748476800&v=beta&t=c7neXzGSDZfSeTIiTk3wDiN3MK_KXORVzNJ3hevqx1E" 
-                  alt="Uniforms" 
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-4">
-                  <h3 className="text-white font-semibold text-lg">Uniforms</h3>
-                </div>
-              </div>
-            </Link>
-          </div>
-        </div>
-      </section>
-
+      {/* Scrubs Section */}
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
-          <div className="flex justify-between items-center mb-8">
-            <h2 className="text-2xl font-bold">New Arrivals</h2>
-            <Link to="/products" className="text-kenyan-brown hover:text-kenyan-brown/80 flex items-center">
-              View All
-              <ArrowRight className="h-4 w-4 ml-1" />
-            </Link>
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-4 text-gray-900">SCRUBS</h2>
           </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 lg:gap-6">
-            {products.slice(0, 8).map((product) => (
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+            {products.filter(p => p.category === 'scrubs').slice(0, 3).map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}
           </div>
         </div>
       </section>
-      
+
+      {/* Medical Equipment Section */}
+      <section className="py-16 bg-gray-800">
+        <div className="container mx-auto px-4">
+          <div className="grid md:grid-cols-3 gap-8">
+            {/* Surgical Caps */}
+            <div className="text-center">
+              <h3 className="text-xl font-bold mb-4 text-white">SURGICAL CAPS</h3>
+              <div className="bg-white rounded-lg p-4">
+                <img 
+                  src="https://media.licdn.com/dms/image/v2/D4D22AQEL8QwDRRm7Iw/feedshare-shrink_1280/B4DZZfSBA.G8Ak-/0/1745355286983?e=1748476800&v=beta&t=V3irlIOoo_mfeJT0PSpVc5IVsqVxJeX2P-jnbyuzLDc" 
+                  alt="Surgical Caps" 
+                  className="w-full h-48 object-cover rounded"
+                />
+              </div>
+            </div>
+
+            {/* Theatre Wears */}
+            <div className="text-center">
+              <h3 className="text-xl font-bold mb-4 text-white">THEATRE WEARS</h3>
+              <div className="bg-white rounded-lg p-4">
+                <img 
+                  src="https://media.licdn.com/dms/image/v2/D4D22AQFgTRuo6xIV1w/feedshare-shrink_2048_1536/B4DZZfSBAbH4Ao-/0/1745355287546?e=1748476800&v=beta&t=YmDkVSNQ54RmNK3HMFTgrHKxm0s2KyQaAUea1KtNcSE" 
+                  alt="Theatre Wears" 
+                  className="w-full h-48 object-cover rounded"
+                />
+              </div>
+            </div>
+
+            {/* Infinity Jackets */}
+            <div className="text-center">
+              <h3 className="text-xl font-bold mb-4 text-white">INFINITY JACKETS</h3>
+              <div className="bg-white rounded-lg p-4">
+                <img 
+                  src="https://media.licdn.com/dms/image/v2/D4D22AQF-DHslLDpIqQ/feedshare-shrink_800/B4DZZfSBA0G8Ag-/0/1745355288159?e=1748476800&v=beta&t=8Axtzi_N6Ff-s8pJ-tJtIvMWwDIldztXgTbLpVVlgJQ" 
+                  alt="Infinity Jackets" 
+                  className="w-full h-48 object-cover rounded"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Clinical Coats Section */}
+      <section className="py-16" style={{ backgroundColor: '#E91E63' }}>
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-4 text-white">CLINICAL COATS</h2>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
+            {products.filter(p => p.category === 'coats').slice(0, 3).map((product) => (
+              <ProductCard key={product.id} product={product} />
+            ))}
+          </div>
+
+          <div className="mt-16">
+            <div className="bg-white rounded-lg p-6">
+              <h3 className="text-2xl font-bold mb-4 text-center text-gray-900">RETAIL AND WHOLESALE PURCHASE</h3>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div className="text-center">
+                  <img 
+                    src="https://media.licdn.com/dms/image/v2/D4D22AQEOXRZSzU2Leg/feedshare-shrink_800/B4DZZfUlaPG4Ak-/0/1745355954681?e=1748476800&v=beta&t=I5H0lPhfc0GAXsxoe_3uOGEvDdkumjB3ti1-cCweFa4" 
+                    alt="Retail" 
+                    className="w-full h-32 object-cover rounded"
+                  />
+                </div>
+                <div className="text-center">
+                  <img 
+                    src="https://media.licdn.com/dms/image/v2/D4D22AQFbXtg59oaimA/feedshare-shrink_800/B4DZZfUfP2HIBo-/0/1745355929947?e=1748476800&v=beta&t=hdfG3zBQQ6Va7xnrLTEzcmNk1BT-whTnMdMc7KQo7O4" 
+                    alt="Wholesale" 
+                    className="w-full h-32 object-cover rounded"
+                  />
+                </div>
+                <div className="text-center">
+                  <img 
+                    src="https://media.licdn.com/dms/image/v2/D4D22AQFe6G3VcOTPJg/feedshare-shrink_2048_1536/B4DZZfUfOkH4Ao-/0/1745355929399?e=1748476800&v=beta&t=b8SjGSmzv3k0C-xhvUw3WomwFkF5q6GIwZ79ud6o1Vw" 
+                    alt="Bulk Orders" 
+                    className="w-full h-32 object-cover rounded"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Scrub Brands Section */}
+      <section className="py-16" style={{ backgroundColor: '#00BCD4' }}>
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-4 text-white">SCRUB BRANDS</h2>
+          </div>
+
+          {/* ScrubStar Brand */}
+          <div className="mb-12">
+            <h3 className="text-2xl font-bold mb-6 text-white">[1] SCRUBSTAR</h3>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
+              {products.filter(p => p.category === 'scrubs').slice(0, 3).map((product) => (
+                <ProductCard key={product.id} product={product} />
+              ))}
+            </div>
+          </div>
+
+          {/* Cherokee Brand */}
+          <div>
+            <h3 className="text-2xl font-bold mb-6 text-white">[2] CHEROKEE</h3>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
+              {products.filter(p => p.category === 'uniforms').slice(0, 3).map((product) => (
+                <ProductCard key={product.id} product={product} />
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Infinity & Landau Brands */}
+      <section className="py-16 bg-gray-800">
+        <div className="container mx-auto px-4">
+          {/* Infinity Brand */}
+          <div className="mb-12">
+            <h3 className="text-2xl font-bold mb-6 text-white">[3] INFINITY</h3>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
+              {products.filter(p => p.category === 'tops').slice(0, 3).map((product) => (
+                <ProductCard key={product.id} product={product} />
+              ))}
+            </div>
+          </div>
+
+          {/* Landau Brand */}
+          <div>
+            <h3 className="text-2xl font-bold mb-6 text-white">[4] LANDAU</h3>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
+              {products.filter(p => p.category === 'dresses').slice(0, 3).map((product) => (
+                <ProductCard key={product.id} product={product} />
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Thrifted Scrubs Section */}
+      <section className="py-16 bg-kenyan-sand">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-4 text-kenyan-brown">[5] THRIFTED SCRUBS</h2>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
+            {products.filter(p => p.category === 'sets').slice(0, 3).map((product) => (
+              <ProductCard key={product.id} product={product} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Accessories Section */}
+      <section className="py-16 bg-kenyan-sand">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-4 text-kenyan-brown">HUBU ACCESSORIES</h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8 mb-12">
+            {/* BP Machines */}
+            <div className="text-center">
+              <h3 className="text-xl font-bold mb-4 text-kenyan-brown">[1] BP MACHINES</h3>
+              <div className="bg-white rounded-lg p-6 shadow-md">
+                <img 
+                  src="https://media.licdn.com/dms/image/v2/D4D22AQHU4RFkFV7veQ/feedshare-shrink_800/B4DZZfSBBRGgAk-/0/1745355287285?e=1748476800&v=beta&t=DeWrJcJ_G8Dul5JnAyFJTF0V-7mEtFsi93D7DRTfoxI" 
+                  alt="BP Machine" 
+                  className="w-full h-48 object-cover rounded mx-auto"
+                />
+              </div>
+            </div>
+
+            {/* MUAC Tapes */}
+            <div className="text-center">
+              <h3 className="text-xl font-bold mb-4 text-kenyan-brown">[2] MUAC TAPES</h3>
+              <div className="bg-white rounded-lg p-6 shadow-md">
+                <img 
+                  src="https://media.licdn.com/dms/image/v2/D4D22AQFgTRuo6xIV1w/feedshare-shrink_2048_1536/B4DZZfSBAbH4Ao-/0/1745355287546?e=1748476800&v=beta&t=YmDkVSNQ54RmNK3HMFTgrHKxm0s2KyQaAUea1KtNcSE" 
+                  alt="MUAC Tapes" 
+                  className="w-full h-48 object-cover rounded mx-auto"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8 mb-12">
+            {/* Stethoscopes */}
+            <div className="text-center">
+              <h3 className="text-xl font-bold mb-4 text-kenyan-brown">[3] STETHOSCOPES</h3>
+              <div className="bg-white rounded-lg p-6 shadow-md">
+                <img 
+                  src="https://media.licdn.com/dms/image/v2/D4D22AQF-DHslLDpIqQ/feedshare-shrink_800/B4DZZfSBA0G8Ag-/0/1745355288159?e=1748476800&v=beta&t=8Axtzi_N6Ff-s8pJ-tJtIvMWwDIldztXgTbLpVVlgJQ" 
+                  alt="Stethoscope" 
+                  className="w-full h-48 object-cover rounded mx-auto"
+                />
+              </div>
+            </div>
+
+            {/* Crocs */}
+            <div className="text-center">
+              <h3 className="text-xl font-bold mb-4 text-kenyan-brown">[4] CROCS</h3>
+              <div className="bg-white rounded-lg p-6 shadow-md">
+                <img 
+                  src="https://media.licdn.com/dms/image/v2/D4D22AQEL8QwDRRm7Iw/feedshare-shrink_1280/B4DZZfSBA.G8Ak-/0/1745355286983?e=1748476800&v=beta&t=V3irlIOoo_mfeJT0PSpVc5IVsqVxJeX2P-jnbyuzLDc" 
+                  alt="Medical Crocs" 
+                  className="w-full h-48 object-cover rounded mx-auto"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {/* Tape Measures */}
+            <div className="text-center">
+              <h3 className="text-xl font-bold mb-4 text-kenyan-brown">[5] TAPE MEASURES</h3>
+              <div className="bg-white rounded-lg p-6 shadow-md">
+                <img 
+                  src="https://media.licdn.com/dms/image/v2/D4D22AQEq0bSEjta50A/feedshare-shrink_1280/B4DZZfSA_pHwAo-/0/1745355287182?e=1748476800&v=beta&t=cZYPKa9tSZjeSoONQkGubnYnm6pMPHQLW_g5SkaNZTY" 
+                  alt="Tape Measure" 
+                  className="w-full h-48 object-cover rounded mx-auto"
+                />
+              </div>
+            </div>
+
+            {/* Patella Hammers */}
+            <div className="text-center">
+              <h3 className="text-xl font-bold mb-4 text-kenyan-brown">[6] PATELLA HAMMERS</h3>
+              <div className="bg-white rounded-lg p-6 shadow-md">
+                <img 
+                  src="https://media.licdn.com/dms/image/v2/D4D22AQEOXRZSzU2Leg/feedshare-shrink_800/B4DZZfUlaPG4Ak-/0/1745355954681?e=1748476800&v=beta&t=I5H0lPhfc0GAXsxoe_3uOGEvDdkumjB3ti1-cCweFa4" 
+                  alt="Patella Hammer" 
+                  className="w-full h-48 object-cover rounded mx-auto"
+                />
+              </div>
+            </div>
+
+            {/* Pen Torches & Scrub Undershirts */}
+            <div className="space-y-8">
+              <div className="text-center">
+                <h3 className="text-lg font-bold mb-4 text-kenyan-brown">[7] PEN TORCHES</h3>
+                <div className="bg-white rounded-lg p-4 shadow-md">
+                  <img 
+                    src="https://media.licdn.com/dms/image/v2/D4D22AQFbXtg59oaimA/feedshare-shrink_800/B4DZZfUfP2HIBo-/0/1745355929947?e=1748476800&v=beta&t=hdfG3zBQQ6Va7xnrLTEzcmNk1BT-whTnMdMc7KQo7O4" 
+                    alt="Pen Torch" 
+                    className="w-full h-32 object-cover rounded mx-auto"
+                  />
+                </div>
+              </div>
+
+              <div className="text-center">
+                <h3 className="text-lg font-bold mb-4 text-kenyan-brown">[8] SCRUB UNDERSHIRTS</h3>
+                <div className="bg-white rounded-lg p-4 shadow-md">
+                  <img 
+                    src="https://media.licdn.com/dms/image/v2/D4D22AQFe6G3VcOTPJg/feedshare-shrink_2048_1536/B4DZZfUfOkH4Ao-/0/1745355929399?e=1748476800&v=beta&t=b8SjGSmzv3k0C-xhvUw3WomwFkF5q6GIwZ79ud6o1Vw" 
+                    alt="Scrub Undershirt" 
+                    className="w-full h-32 object-cover rounded mx-auto"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Us Section */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
