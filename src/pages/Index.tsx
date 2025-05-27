@@ -6,8 +6,58 @@ import ProductCard from '@/components/ProductCard';
 import { Product } from '@/types';
 import { useCart } from '@/context/CartContext';
 
-// Product data based on the images provided
+// Product data with new featured products first
 const products: Product[] = [
+  // New featured products from uploaded images
+  {
+    id: 36,
+    name: "Premium Scrubs Collection",
+    price: 2800,
+    image: "/lovable-uploads/81b6294c-4f88-4035-94c3-e37ecabd2ff7.png",
+    category: "scrubs"
+  },
+  {
+    id: 37,
+    name: "Clinical Coats Professional",
+    price: 4500,
+    image: "/lovable-uploads/936f4123-3979-4332-bc7d-bb36776a8e94.png",
+    category: "coats"
+  },
+  {
+    id: 38,
+    name: "ScrubStar & Cherokee Brands",
+    price: 3200,
+    image: "/lovable-uploads/a3ccb8ab-9110-401d-9e28-3692d5d73b10.png",
+    category: "scrubs"
+  },
+  {
+    id: 39,
+    name: "Infinity & Landau Collection",
+    price: 3500,
+    image: "/lovable-uploads/350b5a15-a35d-44c2-8cee-433954146e8c.png",
+    category: "uniforms"
+  },
+  {
+    id: 40,
+    name: "Thrifted Scrubs & McBurney Accessories",
+    price: 2200,
+    image: "/lovable-uploads/4f491347-149d-4a6f-b708-6dfe055887e9.png",
+    category: "accessories"
+  },
+  {
+    id: 41,
+    name: "Medical Accessories Collection",
+    price: 1800,
+    image: "/lovable-uploads/56ee4598-98a9-444f-9ae2-5dcda4de0c50.png",
+    category: "accessories"
+  },
+  {
+    id: 42,
+    name: "Complete Medical Wardrobe",
+    price: 4200,
+    image: "/lovable-uploads/199557f2-99ab-4e21-b779-28a281301139.png",
+    category: "sets"
+  },
   {
     id: 1,
     name: "Healing Hands Men's Scrubs Top 3 Pocket V-Neck Athletic Fit",
@@ -291,7 +341,7 @@ const Index = () => {
             <div className="hidden md:block">
               <div className="aspect-[4/5] relative rounded-lg overflow-hidden shadow-lg">
                 <img 
-                  src="https://media.licdn.com/dms/image/v2/D4D22AQHU4RFkFV7veQ/feedshare-shrink_800/B4DZZfSBBRGgAk-/0/1745355287285?e=1748476800&v=beta&t=DeWrJcJ_G8Dul5JnAyFJTF0V-7mEtFsi93D7DRTfoxI" 
+                  src="/lovable-uploads/0ef9fac7-2a53-4f6e-9db1-163a7ef21f4a.png" 
                   alt="Featured Medical Scrubs" 
                   className="absolute inset-0 w-full h-full object-cover"
                 />
@@ -324,7 +374,7 @@ const Index = () => {
               <h3 className="text-xl font-bold mb-4 text-white">SURGICAL CAPS</h3>
               <div className="bg-white rounded-lg p-4">
                 <img 
-                  src="https://media.licdn.com/dms/image/v2/D4D22AQEL8QwDRRm7Iw/feedshare-shrink_1280/B4DZZfSBA.G8Ak-/0/1745355286983?e=1748476800&v=beta&t=V3irlIOoo_mfeJT0PSpVc5IVsqVxJeX2P-jnbyuzLDc" 
+                  src="/lovable-uploads/81b6294c-4f88-4035-94c3-e37ecabd2ff7.png" 
                   alt="Surgical Caps" 
                   className="w-full h-48 object-cover rounded"
                 />
@@ -336,7 +386,7 @@ const Index = () => {
               <h3 className="text-xl font-bold mb-4 text-white">THEATRE WEARS</h3>
               <div className="bg-white rounded-lg p-4">
                 <img 
-                  src="https://media.licdn.com/dms/image/v2/D4D22AQFgTRuo6xIV1w/feedshare-shrink_2048_1536/B4DZZfSBAbH4Ao-/0/1745355287546?e=1748476800&v=beta&t=YmDkVSNQ54RmNK3HMFTgrHKxm0s2KyQaAUea1KtNcSE" 
+                  src="/lovable-uploads/81b6294c-4f88-4035-94c3-e37ecabd2ff7.png" 
                   alt="Theatre Wears" 
                   className="w-full h-48 object-cover rounded"
                 />
@@ -348,7 +398,7 @@ const Index = () => {
               <h3 className="text-xl font-bold mb-4 text-white">INFINITY JACKETS</h3>
               <div className="bg-white rounded-lg p-4">
                 <img 
-                  src="https://media.licdn.com/dms/image/v2/D4D22AQF-DHslLDpIqQ/feedshare-shrink_800/B4DZZfSBA0G8Ag-/0/1745355288159?e=1748476800&v=beta&t=8Axtzi_N6Ff-s8pJ-tJtIvMWwDIldztXgTbLpVVlgJQ" 
+                  src="/lovable-uploads/81b6294c-4f88-4035-94c3-e37ecabd2ff7.png" 
                   alt="Infinity Jackets" 
                   className="w-full h-48 object-cover rounded"
                 />
@@ -376,21 +426,21 @@ const Index = () => {
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 <div className="text-center">
                   <img 
-                    src="https://media.licdn.com/dms/image/v2/D4D22AQEOXRZSzU2Leg/feedshare-shrink_800/B4DZZfUlaPG4Ak-/0/1745355954681?e=1748476800&v=beta&t=I5H0lPhfc0GAXsxoe_3uOGEvDdkumjB3ti1-cCweFa4" 
+                    src="/lovable-uploads/936f4123-3979-4332-bc7d-bb36776a8e94.png" 
                     alt="Retail" 
                     className="w-full h-32 object-cover rounded"
                   />
                 </div>
                 <div className="text-center">
                   <img 
-                    src="https://media.licdn.com/dms/image/v2/D4D22AQFbXtg59oaimA/feedshare-shrink_800/B4DZZfUfP2HIBo-/0/1745355929947?e=1748476800&v=beta&t=hdfG3zBQQ6Va7xnrLTEzcmNk1BT-whTnMdMc7KQo7O4" 
+                    src="/lovable-uploads/936f4123-3979-4332-bc7d-bb36776a8e94.png" 
                     alt="Wholesale" 
                     className="w-full h-32 object-cover rounded"
                   />
                 </div>
                 <div className="text-center">
                   <img 
-                    src="https://media.licdn.com/dms/image/v2/D4D22AQFe6G3VcOTPJg/feedshare-shrink_2048_1536/B4DZZfUfOkH4Ao-/0/1745355929399?e=1748476800&v=beta&t=b8SjGSmzv3k0C-xhvUw3WomwFkF5q6GIwZ79ud6o1Vw" 
+                    src="/lovable-uploads/936f4123-3979-4332-bc7d-bb36776a8e94.png" 
                     alt="Bulk Orders" 
                     className="w-full h-32 object-cover rounded"
                   />
@@ -482,7 +532,7 @@ const Index = () => {
               <h3 className="text-xl font-bold mb-4 text-kenyan-brown">[1] BP MACHINES</h3>
               <div className="bg-white rounded-lg p-6 shadow-md">
                 <img 
-                  src="https://media.licdn.com/dms/image/v2/D4D22AQHU4RFkFV7veQ/feedshare-shrink_800/B4DZZfSBBRGgAk-/0/1745355287285?e=1748476800&v=beta&t=DeWrJcJ_G8Dul5JnAyFJTF0V-7mEtFsi93D7DRTfoxI" 
+                  src="/lovable-uploads/4f491347-149d-4a6f-b708-6dfe055887e9.png" 
                   alt="BP Machine" 
                   className="w-full h-48 object-cover rounded mx-auto"
                 />
@@ -494,7 +544,7 @@ const Index = () => {
               <h3 className="text-xl font-bold mb-4 text-kenyan-brown">[2] MUAC TAPES</h3>
               <div className="bg-white rounded-lg p-6 shadow-md">
                 <img 
-                  src="https://media.licdn.com/dms/image/v2/D4D22AQFgTRuo6xIV1w/feedshare-shrink_2048_1536/B4DZZfSBAbH4Ao-/0/1745355287546?e=1748476800&v=beta&t=YmDkVSNQ54RmNK3HMFTgrHKxm0s2KyQaAUea1KtNcSE" 
+                  src="/lovable-uploads/4f491347-149d-4a6f-b708-6dfe055887e9.png" 
                   alt="MUAC Tapes" 
                   className="w-full h-48 object-cover rounded mx-auto"
                 />
@@ -508,7 +558,7 @@ const Index = () => {
               <h3 className="text-xl font-bold mb-4 text-kenyan-brown">[3] STETHOSCOPES</h3>
               <div className="bg-white rounded-lg p-6 shadow-md">
                 <img 
-                  src="https://media.licdn.com/dms/image/v2/D4D22AQF-DHslLDpIqQ/feedshare-shrink_800/B4DZZfSBA0G8Ag-/0/1745355288159?e=1748476800&v=beta&t=8Axtzi_N6Ff-s8pJ-tJtIvMWwDIldztXgTbLpVVlgJQ" 
+                  src="/lovable-uploads/56ee4598-98a9-444f-9ae2-5dcda4de0c50.png" 
                   alt="Stethoscope" 
                   className="w-full h-48 object-cover rounded mx-auto"
                 />
@@ -520,7 +570,7 @@ const Index = () => {
               <h3 className="text-xl font-bold mb-4 text-kenyan-brown">[4] CROCS</h3>
               <div className="bg-white rounded-lg p-6 shadow-md">
                 <img 
-                  src="https://media.licdn.com/dms/image/v2/D4D22AQEL8QwDRRm7Iw/feedshare-shrink_1280/B4DZZfSBA.G8Ak-/0/1745355286983?e=1748476800&v=beta&t=V3irlIOoo_mfeJT0PSpVc5IVsqVxJeX2P-jnbyuzLDc" 
+                  src="/lovable-uploads/56ee4598-98a9-444f-9ae2-5dcda4de0c50.png" 
                   alt="Medical Crocs" 
                   className="w-full h-48 object-cover rounded mx-auto"
                 />
@@ -534,7 +584,7 @@ const Index = () => {
               <h3 className="text-xl font-bold mb-4 text-kenyan-brown">[5] TAPE MEASURES</h3>
               <div className="bg-white rounded-lg p-6 shadow-md">
                 <img 
-                  src="https://media.licdn.com/dms/image/v2/D4D22AQEq0bSEjta50A/feedshare-shrink_1280/B4DZZfSA_pHwAo-/0/1745355287182?e=1748476800&v=beta&t=cZYPKa9tSZjeSoONQkGubnYnm6pMPHQLW_g5SkaNZTY" 
+                  src="/lovable-uploads/56ee4598-98a9-444f-9ae2-5dcda4de0c50.png" 
                   alt="Tape Measure" 
                   className="w-full h-48 object-cover rounded mx-auto"
                 />
@@ -546,7 +596,7 @@ const Index = () => {
               <h3 className="text-xl font-bold mb-4 text-kenyan-brown">[6] PATELLA HAMMERS</h3>
               <div className="bg-white rounded-lg p-6 shadow-md">
                 <img 
-                  src="https://media.licdn.com/dms/image/v2/D4D22AQEOXRZSzU2Leg/feedshare-shrink_800/B4DZZfUlaPG4Ak-/0/1745355954681?e=1748476800&v=beta&t=I5H0lPhfc0GAXsxoe_3uOGEvDdkumjB3ti1-cCweFa4" 
+                  src="/lovable-uploads/56ee4598-98a9-444f-9ae2-5dcda4de0c50.png" 
                   alt="Patella Hammer" 
                   className="w-full h-48 object-cover rounded mx-auto"
                 />
@@ -559,7 +609,7 @@ const Index = () => {
                 <h3 className="text-lg font-bold mb-4 text-kenyan-brown">[7] PEN TORCHES</h3>
                 <div className="bg-white rounded-lg p-4 shadow-md">
                   <img 
-                    src="https://media.licdn.com/dms/image/v2/D4D22AQFbXtg59oaimA/feedshare-shrink_800/B4DZZfUfP2HIBo-/0/1745355929947?e=1748476800&v=beta&t=hdfG3zBQQ6Va7xnrLTEzcmNk1BT-whTnMdMc7KQo7O4" 
+                    src="/lovable-uploads/56ee4598-98a9-444f-9ae2-5dcda4de0c50.png" 
                     alt="Pen Torch" 
                     className="w-full h-32 object-cover rounded mx-auto"
                   />
@@ -570,7 +620,7 @@ const Index = () => {
                 <h3 className="text-lg font-bold mb-4 text-kenyan-brown">[8] SCRUB UNDERSHIRTS</h3>
                 <div className="bg-white rounded-lg p-4 shadow-md">
                   <img 
-                    src="https://media.licdn.com/dms/image/v2/D4D22AQFe6G3VcOTPJg/feedshare-shrink_2048_1536/B4DZZfUfOkH4Ao-/0/1745355929399?e=1748476800&v=beta&t=b8SjGSmzv3k0C-xhvUw3WomwFkF5q6GIwZ79ud6o1Vw" 
+                    src="/lovable-uploads/56ee4598-98a9-444f-9ae2-5dcda4de0c50.png" 
                     alt="Scrub Undershirt" 
                     className="w-full h-32 object-cover rounded mx-auto"
                   />
