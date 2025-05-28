@@ -9,6 +9,64 @@ import { useCart } from '@/context/CartContext';
 
 // Updated product data with reorganized images
 const products: Product[] = [
+
+  // SCRUBS JACKET 
+   {
+  id: 1,
+  name: "Proffesional jacket ",
+  price: 800,
+  image: "https://media.licdn.com/dms/image/v2/D4D22AQE-I5Sw8TyKuQ/feedshare-shrink_2048_1536/B4DZcWA6AdGwAo-/0/1748421033470?e=1751500800&v=beta&t=W-iSIlWPFyBnbJFyDfRAN7IhNKj9HpzCnZAv7Pmc-7Q",
+  category: "Jacket"
+},
+{
+  id: 2,
+  name: "Surgical Medical jacket ",
+  price: 800,
+  image: "https://media.licdn.com/dms/image/v2/D4D22AQGWteOxHoGDAQ/feedshare-shrink_1280/B4DZcWA6AXGkAk-/0/1748421032258?e=1751500800&v=beta&t=9jms7mCR1dv9wH_AEqpVzoTgcTpliQ04fDPufmfbVYA",
+  category: "jacket"
+},
+{
+  id: 3,
+  name: "Royal medical jacket ",
+  price: 800,
+  image: "https://media.licdn.com/dms/image/v2/D4D22AQEG9blCRhUAwA/feedshare-shrink_800/B4DZcWA5_WHMAg-/0/1748421028031?e=1751500800&v=beta&t=Mx3sky0a542TgXPmgqyyp139q-Rtkg637emaeepQTZ0",
+  category: "jacket"
+},
+{
+  id: 4,
+  name: "healing hands Medical jacket ",
+  price: 800,
+  image: "https://media.licdn.com/dms/image/v2/D4D22AQEoIOi5uwITWw/feedshare-shrink_1280/B4DZcWA6AsGkAk-/0/1748421029027?e=1751500800&v=beta&t=V1pRo0BxJwWLjswGj5bVt97mxHmuf3l5nCKgjpkZ8Rc",
+  category: "jacket"
+},
+{
+  id: 5,
+  name: "Professional Clinical jacket ",
+  price: 800,
+  image: "https://media.licdn.com/dms/image/v2/D4D22AQESIryx1pezpA/feedshare-shrink_2048_1536/B4DZcWA6ABGkAo-/0/1748421034417?e=1751500800&v=beta&t=t8OxMS0vZiaURm21Ya_Znl6LkZiwujQAIJPFL5KW7SU",
+  category: "jacket"
+},
+{
+  id: 6,
+  name: "Medical surgical Jacket ",
+  price: 800,
+  image: "https://media.licdn.com/dms/image/v2/D4D22AQHSS0xTJRt_qQ/feedshare-shrink_1280/B4DZcWA6A9GgAk-/0/1748421033185?e=1751500800&v=beta&t=fGgQGalV1KzmFo0sIJyfHMAPar9sobEsGP1EFTQYwmw",
+  category: "jacket"
+},
+{
+  id: 7,
+  name: "Healing hand medical jacket",
+  price: 800,
+  image: "https://media.licdn.com/dms/image/v2/D4D22AQEegvsi6_VJwg/feedshare-shrink_1280/B4DZcWA6A4IAAk-/0/1748421034589?e=1751500800&v=beta&t=5cEKTvlSQ4UagsjsSMJoZdtBlTDlcrcdpWWeDEKGHNo",
+  category: "jacket"
+},
+{
+  id: 8,
+  name: " Professional surgical jacket",
+  price: 800,
+  image: "https://media.licdn.com/dms/image/v2/D4D22AQGWo2BU_aKs_w/feedshare-shrink_2048_1536/B4DZcWA6BWG8Ao-/0/1748421033563?e=1751500800&v=beta&t=zNmhSDKRCW_m0dmLquHn6oGQ6RRxljpI7nbo11a_MJk",
+  category: "jacket"
+}
   // SCRUBS Category
   {
     id: 1,
