@@ -32,17 +32,17 @@ const products: Product[] = [
     category: "scrubs"
   },
   {
-    id: 8,
-    name: "Professional Scrubs Collection",
+    id: 15,
+    name: "Royal Blue Medical Scrubs",
     price: 2200,
-    image: "/lovable-uploads/199557f2-99ab-4e21-b779-28a281301139.png",
+    image: "https://craftandstitch.co.ke/wp-content/uploads/2023/02/royal-blue-2.jpg",
     category: "scrubs"
   },
   {
-    id: 13,
-    name: "Premium Nursing Collection",
-    price: 2700,
-    image: "/lovable-uploads/936f4123-3979-4332-bc7d-bb36776a8e94.png",
+    id: 16,
+    name: "Professional Medical Scrubs",
+    price: 2400,
+    image: "https://www.outstanding.co.ke/wp-content/uploads/2023/03/scrubs.png",
     category: "scrubs"
   },
 
@@ -69,23 +69,21 @@ const products: Product[] = [
     category: "coats"
   },
   {
-    id: 14,
-    name: "Advanced Medical Uniform",
-    price: 3200,
-    image: "/lovable-uploads/a3ccb8ab-9110-401d-9e28-3692d5d73b10.png",
+    id: 17,
+    name: "Premium White Lab Coat",
+    price: 3000,
+    image: "https://m.media-amazon.com/images/I/51Kjy0nO0AL._AC_SL1500_.jpg",
+    category: "coats"
+  },
+  {
+    id: 18,
+    name: "Unisex Professional Lab Coat",
+    price: 2800,
+    image: "https://uniformtailor.in/image/cache/catalog/data/health-care-uniform/labcoat/Unisex-37-Inch-Lab-Coat-Front-670x760.jpg",
     category: "coats"
   },
 
-  // MEDICAL UNIFORMS Category
-  {
-    id: 7,
-    name: "Premium Medical Uniform Set",
-    price: 2800,
-    image: "/lovable-uploads/0ef9fac7-2a53-4f6e-9db1-163a7ef21f4a.png",
-    category: "uniforms"
-  },
-
-  // ACCESSORIES & SPECIALTY Category (removed first, second last, and last images)
+  // ACCESSORIES & SPECIALTY Category
   {
     id: 10,
     name: "Specialty Medical Apparel",
@@ -101,10 +99,17 @@ const products: Product[] = [
     category: "designer"
   },
   {
-    id: 12,
-    name: "Essential Medical Kit",
-    price: 2400,
-    image: "/lovable-uploads/81b6294c-4f88-4035-94c3-e37ecabd2ff7.png",
+    id: 19,
+    name: "Healthcare Equipment & Accessories",
+    price: 2500,
+    image: "https://qlinicahealthcare.co.ke/wp-content/uploads/2024/02/healme-blog-nov.webp",
+    category: "specialty"
+  },
+  {
+    id: 20,
+    name: "Medical Accessories Kit",
+    price: 2700,
+    image: "https://images-na.ssl-images-amazon.com/images/I/61UOZcadEHL._UL1200_.jpg",
     category: "kits"
   }
 ];
@@ -123,11 +128,11 @@ const Index = () => {
               <div className="flex items-center mb-6">
                 <img 
                   src="/lovable-uploads/d3add6da-f9a7-42b0-b64f-522dc0e7397d.png" 
-                  alt="Infinity Scrubs Logo" 
+                  alt="Royal Scrubs Logo" 
                   className="h-16 w-16 mr-4"
                 />
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-kenyan-brown">
-                  INFINITY SCRUBS
+                  ROYAL SCRUBS
                 </h1>
               </div>
               <p className="text-lg mb-8 text-gray-700">
@@ -270,50 +275,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Medical Uniforms Section */}
-      <section className="py-16 bg-blue-50">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4 text-gray-900">MEDICAL UNIFORMS</h2>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
-            {products.filter(p => p.category === 'uniforms').map((product) => (
-              <div key={product.id} className="group relative bg-white rounded-lg overflow-hidden border border-gray-200 transition-all duration-300 hover:shadow-md">
-                <Link to={`/product/${product.id}`} className="block">
-                  <div className="aspect-square overflow-hidden">
-                    <img 
-                      src={product.image} 
-                      alt={product.name} 
-                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                    />
-                  </div>
-                </Link>
-                <div className="p-4">
-                  <Link to={`/product/${product.id}`} className="block">
-                    <h3 className="text-sm font-medium text-gray-800 line-clamp-2 mb-1 h-10">
-                      {product.name}
-                    </h3>
-                  </Link>
-                  <div className="flex items-center justify-end mt-2">
-                    <Button 
-                      size="sm" 
-                      variant="ghost"
-                      className="text-kenyan-brown hover:text-kenyan-red hover:bg-transparent"
-                      onClick={(e) => {
-                        e.preventDefault();
-                        addToCart(product);
-                      }}
-                    >
-                      <ShoppingCart className="h-4 w-4" />
-                    </Button>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Accessories & Specialty Items Section */}
       <section className="py-16 bg-green-50">
         <div className="container mx-auto px-4">
@@ -362,7 +323,7 @@ const Index = () => {
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4">Why Choose Infinity Scrubs</h2>
+            <h2 className="text-3xl font-bold mb-4">Why Choose Royal Scrubs</h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
               We provide high-quality medical apparel designed specifically for healthcare professionals.
             </p>
@@ -413,7 +374,7 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="flex flex-col items-center space-y-4">
             <div className="text-center">
-              <h3 className="text-xl font-bold mb-2">INFINITY SCRUBS</h3>
+              <h3 className="text-xl font-bold mb-2">ROYAL SCRUBS</h3>
               <p className="text-kenyan-sand">Quality Medical Apparel for Healthcare Professionals</p>
             </div>
             
@@ -431,7 +392,7 @@ const Index = () => {
             </div>
             
             <div className="text-center text-sm text-kenyan-sand">
-              <p>&copy; 2024 Infinity Scrubs. All rights reserved.</p>
+              <p>&copy; 2024 Royal Scrubs. All rights reserved.</p>
             </div>
           </div>
         </div>
