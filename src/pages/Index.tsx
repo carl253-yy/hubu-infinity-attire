@@ -7,7 +7,7 @@ import ProductCard from '@/components/ProductCard';
 import { Product } from '@/types';
 import { useCart } from '@/context/CartContext';
 
-// Updated product data with the specific images requested
+// Updated product data with reorganized images
 const products: Product[] = [
   // SCRUBS Category
   {
@@ -29,6 +29,20 @@ const products: Product[] = [
     name: "Blue Pattern Scrubs",
     price: 2500,
     image: "https://media.licdn.com/dms/image/v2/D4D22AQFbXtg59oaimA/feedshare-shrink_800/B4DZZfUfP2HIBo-/0/1745355929947?e=1748476800&v=beta&t=hdfG3zBQQ6Va7xnrLTEzcmNk1BT-whTnMdMc7KQo7O4",
+    category: "scrubs"
+  },
+  {
+    id: 8,
+    name: "Professional Scrubs Collection",
+    price: 2200,
+    image: "/lovable-uploads/199557f2-99ab-4e21-b779-28a281301139.png",
+    category: "scrubs"
+  },
+  {
+    id: 13,
+    name: "Premium Nursing Collection",
+    price: 2700,
+    image: "/lovable-uploads/936f4123-3979-4332-bc7d-bb36776a8e94.png",
     category: "scrubs"
   },
 
@@ -54,8 +68,15 @@ const products: Product[] = [
     image: "https://media.licdn.com/dms/image/v2/D4D22AQGq0Q1fQK-tBQ/feedshare-shrink_800/B4DZZfUU6YGgAg-/0/1745355888195?e=1749686400&v=beta&t=TC1KgQDj9sdduXBE9Vz4tO1uqiq25ghFYhWSRdsoj8A",
     category: "coats"
   },
+  {
+    id: 14,
+    name: "Advanced Medical Uniform",
+    price: 3200,
+    image: "/lovable-uploads/a3ccb8ab-9110-401d-9e28-3692d5d73b10.png",
+    category: "coats"
+  },
 
-  // NEW PRODUCTS from uploaded images
+  // MEDICAL UNIFORMS Category
   {
     id: 7,
     name: "Premium Medical Uniform Set",
@@ -63,20 +84,8 @@ const products: Product[] = [
     image: "/lovable-uploads/0ef9fac7-2a53-4f6e-9db1-163a7ef21f4a.png",
     category: "uniforms"
   },
-  {
-    id: 8,
-    name: "Professional Scrubs Collection",
-    price: 2200,
-    image: "/lovable-uploads/199557f2-99ab-4e21-b779-28a281301139.png",
-    category: "scrubs"
-  },
-  {
-    id: 9,
-    name: "Medical Accessories & Tools",
-    price: 1800,
-    image: "/lovable-uploads/350b5a15-a35d-44c2-8cee-433954146e8c.png",
-    category: "accessories"
-  },
+
+  // ACCESSORIES & SPECIALTY Category (removed first, second last, and last images)
   {
     id: 10,
     name: "Specialty Medical Apparel",
@@ -97,20 +106,6 @@ const products: Product[] = [
     price: 2400,
     image: "/lovable-uploads/81b6294c-4f88-4035-94c3-e37ecabd2ff7.png",
     category: "kits"
-  },
-  {
-    id: 13,
-    name: "Premium Nursing Collection",
-    price: 2700,
-    image: "/lovable-uploads/936f4123-3979-4332-bc7d-bb36776a8e94.png",
-    category: "nursing"
-  },
-  {
-    id: 14,
-    name: "Advanced Medical Uniform",
-    price: 3200,
-    image: "/lovable-uploads/a3ccb8ab-9110-401d-9e28-3692d5d73b10.png",
-    category: "uniforms"
   }
 ];
 
@@ -125,9 +120,16 @@ const Index = () => {
         <div className="container mx-auto px-4 relative z-10">
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-kenyan-brown">
-                INFINITY SCRUBS
-              </h1>
+              <div className="flex items-center mb-6">
+                <img 
+                  src="/lovable-uploads/d3add6da-f9a7-42b0-b64f-522dc0e7397d.png" 
+                  alt="Infinity Scrubs Logo" 
+                  className="h-16 w-16 mr-4"
+                />
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-kenyan-brown">
+                  INFINITY SCRUBS
+                </h1>
+              </div>
               <p className="text-lg mb-8 text-gray-700">
                 Experience comfort and durability with our medical clothing. Crafted with quality materials, our attire ensures functionality and style, providing you with confidence and professionalism through your demanding shifts.
               </p>
@@ -188,7 +190,37 @@ const Index = () => {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {products.filter(p => p.category === 'scrubs').map((product) => (
-              <ProductCard key={product.id} product={product} />
+              <div key={product.id} className="group relative bg-white rounded-lg overflow-hidden border border-gray-200 transition-all duration-300 hover:shadow-md">
+                <Link to={`/product/${product.id}`} className="block">
+                  <div className="aspect-square overflow-hidden">
+                    <img 
+                      src={product.image} 
+                      alt={product.name} 
+                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    />
+                  </div>
+                </Link>
+                <div className="p-4">
+                  <Link to={`/product/${product.id}`} className="block">
+                    <h3 className="text-sm font-medium text-gray-800 line-clamp-2 mb-1 h-10">
+                      {product.name}
+                    </h3>
+                  </Link>
+                  <div className="flex items-center justify-end mt-2">
+                    <Button 
+                      size="sm" 
+                      variant="ghost"
+                      className="text-kenyan-brown hover:text-kenyan-red hover:bg-transparent"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        addToCart(product);
+                      }}
+                    >
+                      <ShoppingCart className="h-4 w-4" />
+                    </Button>
+                  </div>
+                </div>
+              </div>
             ))}
           </div>
         </div>
@@ -200,9 +232,39 @@ const Index = () => {
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4 text-white">CLINICAL COATS</h2>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
             {products.filter(p => p.category === 'coats').map((product) => (
-              <ProductCard key={product.id} product={product} />
+              <div key={product.id} className="group relative bg-white rounded-lg overflow-hidden border border-gray-200 transition-all duration-300 hover:shadow-md">
+                <Link to={`/product/${product.id}`} className="block">
+                  <div className="aspect-square overflow-hidden">
+                    <img 
+                      src={product.image} 
+                      alt={product.name} 
+                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    />
+                  </div>
+                </Link>
+                <div className="p-4">
+                  <Link to={`/product/${product.id}`} className="block">
+                    <h3 className="text-sm font-medium text-gray-800 line-clamp-2 mb-1 h-10">
+                      {product.name}
+                    </h3>
+                  </Link>
+                  <div className="flex items-center justify-end mt-2">
+                    <Button 
+                      size="sm" 
+                      variant="ghost"
+                      className="text-kenyan-brown hover:text-kenyan-red hover:bg-transparent"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        addToCart(product);
+                      }}
+                    >
+                      <ShoppingCart className="h-4 w-4" />
+                    </Button>
+                  </div>
+                </div>
+              </div>
             ))}
           </div>
         </div>
@@ -216,7 +278,37 @@ const Index = () => {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
             {products.filter(p => p.category === 'uniforms').map((product) => (
-              <ProductCard key={product.id} product={product} />
+              <div key={product.id} className="group relative bg-white rounded-lg overflow-hidden border border-gray-200 transition-all duration-300 hover:shadow-md">
+                <Link to={`/product/${product.id}`} className="block">
+                  <div className="aspect-square overflow-hidden">
+                    <img 
+                      src={product.image} 
+                      alt={product.name} 
+                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    />
+                  </div>
+                </Link>
+                <div className="p-4">
+                  <Link to={`/product/${product.id}`} className="block">
+                    <h3 className="text-sm font-medium text-gray-800 line-clamp-2 mb-1 h-10">
+                      {product.name}
+                    </h3>
+                  </Link>
+                  <div className="flex items-center justify-end mt-2">
+                    <Button 
+                      size="sm" 
+                      variant="ghost"
+                      className="text-kenyan-brown hover:text-kenyan-red hover:bg-transparent"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        addToCart(product);
+                      }}
+                    >
+                      <ShoppingCart className="h-4 w-4" />
+                    </Button>
+                  </div>
+                </div>
+              </div>
             ))}
           </div>
         </div>
@@ -229,8 +321,38 @@ const Index = () => {
             <h2 className="text-3xl font-bold mb-4 text-gray-900">ACCESSORIES & SPECIALTY</h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-            {products.filter(p => ['accessories', 'specialty', 'designer', 'kits', 'nursing'].includes(p.category)).map((product) => (
-              <ProductCard key={product.id} product={product} />
+            {products.filter(p => ['specialty', 'designer', 'kits'].includes(p.category)).map((product) => (
+              <div key={product.id} className="group relative bg-white rounded-lg overflow-hidden border border-gray-200 transition-all duration-300 hover:shadow-md">
+                <Link to={`/product/${product.id}`} className="block">
+                  <div className="aspect-square overflow-hidden">
+                    <img 
+                      src={product.image} 
+                      alt={product.name} 
+                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    />
+                  </div>
+                </Link>
+                <div className="p-4">
+                  <Link to={`/product/${product.id}`} className="block">
+                    <h3 className="text-sm font-medium text-gray-800 line-clamp-2 mb-1 h-10">
+                      {product.name}
+                    </h3>
+                  </Link>
+                  <div className="flex items-center justify-end mt-2">
+                    <Button 
+                      size="sm" 
+                      variant="ghost"
+                      className="text-kenyan-brown hover:text-kenyan-red hover:bg-transparent"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        addToCart(product);
+                      }}
+                    >
+                      <ShoppingCart className="h-4 w-4" />
+                    </Button>
+                  </div>
+                </div>
+              </div>
             ))}
           </div>
         </div>
