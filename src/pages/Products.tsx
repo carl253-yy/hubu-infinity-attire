@@ -18,17 +18,12 @@ const ProductsPage = ({ products }: ProductsPageProps) => {
   const [showFilters, setShowFilters] = useState(false);
   const location = useLocation();
 
-  // Get unique categories from products (excluding "dresses" category)
-  const categories = ['all', ...new Set(products
-    .map(product => product.category)
-    .filter(category => category !== 'dresses'))];
+  // Get unique categories from products
+  const categories = ['all', ...new Set(products.map(product => product.category))];
   
   useEffect(() => {
     // Filter products based on search term and selected category
     let result = products;
-    
-    // Remove products with category "dresses"
-    result = result.filter(product => product.category !== 'dresses');
     
     if (searchTerm) {
       result = result.filter(product => 
@@ -48,7 +43,7 @@ const ProductsPage = ({ products }: ProductsPageProps) => {
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
-        <h1 className="text-2xl font-bold">All Products</h1>
+        <h1 className="text-2xl font-bold">Infinity Scrubs Products</h1>
         
         <div className="flex flex-col sm:flex-row gap-4 w-full md:w-auto">
           <div className="relative flex-grow">

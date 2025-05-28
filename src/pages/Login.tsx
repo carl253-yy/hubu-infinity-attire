@@ -16,8 +16,8 @@ const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  // Get redirect path from location state or default to home
-  const redirectPath = location.state?.from || '/';
+  // Get redirect path from location state or default to products page
+  const redirectPath = location.state?.from || '/products';
   
   // Redirect if already authenticated
   useEffect(() => {
@@ -40,11 +40,12 @@ const Login = () => {
     try {
       const success = await login(email, password);
       
-      if (!success) {
+      if (success) {
+        navigate('/products');
+      } else {
         console.log("Login failed");
-        setError('Login failed. Please check your credentials.');
+        setError('Login failed. Please try again.');
       }
-      // Note: We don't navigate here as the auth state change will trigger the useEffect that navigates
     } catch (error) {
       console.error("Login error:", error);
       setError('An unexpected error occurred. Please try again.');
@@ -64,9 +65,9 @@ const Login = () => {
     <div className="container mx-auto px-4 py-16 max-w-md">
       <div className="bg-background p-8 rounded-lg shadow-sm border">
         <div className="text-center mb-6">
-          <h1 className="text-2xl font-bold">Login to Your Account</h1>
+          <h1 className="text-2xl font-bold">Login to Infinity Scrubs</h1>
           <p className="text-foreground/80 mt-2">
-            Enter your credentials to access HUBU INFINITY SCRUBS
+            Enter any email and password to access the dashboard
           </p>
           {location.state?.from && (
             <div className="mt-3 p-3 bg-amber-50 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300 rounded-md text-sm">
@@ -132,10 +133,7 @@ const Login = () => {
 
         <div className="mt-6 text-center text-sm">
           <p className="text-foreground/80">
-            Don't have an account?{' '}
-            <Link to="/register" className="text-kenyan-brown font-semibold hover:underline">
-              Register now
-            </Link>
+            Demo login - use any email and password
           </p>
         </div>
       </div>
