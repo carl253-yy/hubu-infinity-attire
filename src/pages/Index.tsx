@@ -53,6 +53,64 @@ const products: Product[] = [
     price: 2500,
     image: "https://media.licdn.com/dms/image/v2/D4D22AQGq0Q1fQK-tBQ/feedshare-shrink_800/B4DZZfUU6YGgAg-/0/1745355888195?e=1749686400&v=beta&t=TC1KgQDj9sdduXBE9Vz4tO1uqiq25ghFYhWSRdsoj8A",
     category: "coats"
+  },
+
+  // NEW PRODUCTS from uploaded images
+  {
+    id: 7,
+    name: "Premium Medical Uniform Set",
+    price: 2800,
+    image: "/lovable-uploads/0ef9fac7-2a53-4f6e-9db1-163a7ef21f4a.png",
+    category: "uniforms"
+  },
+  {
+    id: 8,
+    name: "Professional Scrubs Collection",
+    price: 2200,
+    image: "/lovable-uploads/199557f2-99ab-4e21-b779-28a281301139.png",
+    category: "scrubs"
+  },
+  {
+    id: 9,
+    name: "Medical Accessories & Tools",
+    price: 1800,
+    image: "/lovable-uploads/350b5a15-a35d-44c2-8cee-433954146e8c.png",
+    category: "accessories"
+  },
+  {
+    id: 10,
+    name: "Specialty Medical Apparel",
+    price: 2600,
+    image: "/lovable-uploads/4f491347-149d-4a6f-b708-6dfe055887e9.png",
+    category: "specialty"
+  },
+  {
+    id: 11,
+    name: "Designer Medical Wear",
+    price: 3000,
+    image: "/lovable-uploads/56ee4598-98a9-444f-9ae2-5dcda4de0c50.png",
+    category: "designer"
+  },
+  {
+    id: 12,
+    name: "Essential Medical Kit",
+    price: 2400,
+    image: "/lovable-uploads/81b6294c-4f88-4035-94c3-e37ecabd2ff7.png",
+    category: "kits"
+  },
+  {
+    id: 13,
+    name: "Premium Nursing Collection",
+    price: 2700,
+    image: "/lovable-uploads/936f4123-3979-4332-bc7d-bb36776a8e94.png",
+    category: "nursing"
+  },
+  {
+    id: 14,
+    name: "Advanced Medical Uniform",
+    price: 3200,
+    image: "/lovable-uploads/a3ccb8ab-9110-401d-9e28-3692d5d73b10.png",
+    category: "uniforms"
   }
 ];
 
@@ -128,7 +186,7 @@ const Index = () => {
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4 text-gray-900">SCRUBS</h2>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {products.filter(p => p.category === 'scrubs').map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}
@@ -144,6 +202,34 @@ const Index = () => {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
             {products.filter(p => p.category === 'coats').map((product) => (
+              <ProductCard key={product.id} product={product} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Medical Uniforms Section */}
+      <section className="py-16 bg-blue-50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-4 text-gray-900">MEDICAL UNIFORMS</h2>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
+            {products.filter(p => p.category === 'uniforms').map((product) => (
+              <ProductCard key={product.id} product={product} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Accessories & Specialty Items Section */}
+      <section className="py-16 bg-green-50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-4 text-gray-900">ACCESSORIES & SPECIALTY</h2>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            {products.filter(p => ['accessories', 'specialty', 'designer', 'kits', 'nursing'].includes(p.category)).map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}
           </div>
