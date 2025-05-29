@@ -102,196 +102,196 @@ const products: Product[] = [
     id: 1,
     name: "Men's Scrubs Top 3 Pocket V-Neck Athletic Fit",
     price: 1300,
-    image: "https://media.licdn.com/dms/image/v2/D4D22AQHU4RFkFV7veQ/feedshare-shrink_800/B4DZZfSBBRGgAk-/0/1745355287285?e=1748476800&v=beta&t=DeWrJcJ_G8Dul5JnAyFJTF0V-7mEtFsi93D7DRTfoxI",
+    image: "/lovable-uploads/95a41477-a67f-4933-9c4f-b6e0010c85a6.png",
     category: "scrubs"
   },
   {
     id: 2,
     name: "Nursing Uniform Stretchy Soft Short Sleeve",
     price: 1300,
-    image: "https://media.licdn.com/dms/image/v2/D4D22AQFgTRuo6xIV1w/feedshare-shrink_2048_1536/B4DZZfSBAbH4Ao-/0/1745355287546?e=1748476800&v=beta&t=YmDkVSNQ54RmNK3HMFTgrHKxm0s2KyQaAUea1KtNcSE",
+    image: "/lovable-uploads/e8faa0ab-10de-4306-9155-6f619238cd1e.png",
     category: "coats"
   },
   {
     id: 3,
     name: "Comfort Fit Top",
     price: 1300,
-    image: "https://media.licdn.com/dms/image/v2/D4D22AQF-DHslLDpIqQ/feedshare-shrink_800/B4DZZfSBA0G8Ag-/0/1745355288159?e=1748476800&v=beta&t=8Axtzi_N6Ff-s8pJ-tJtIvMWwDIldztXgTbLpVVlgJQ",
+    image: "/lovable-uploads/83b0a7ad-bfff-4af2-8d51-da93798f4c46.png",
     category: "tops"
   },
   {
     id: 4,
     name: "Surgical Scrubs",
     price: 1300,
-    image: "https://media.licdn.com/dms/image/v2/D4D22AQEL8QwDRRm7Iw/feedshare-shrink_1280/B4DZZfSBA.G8Ak-/0/1745355286983?e=1748476800&v=beta&t=V3irlIOoo_mfeJT0PSpVc5IVsqVxJeX2P-jnbyuzLDc",
+    image: "/lovable-uploads/916a68bd-eb09-49e5-9ce0-4d01b4e06e56.png",
     category: "scrubs"
   },
   {
     id: 5,
     name: "Medical Uniform",
     price: 1300,
-    image: "https://media.licdn.com/dms/image/v2/D4D22AQEq0bSEjta50A/feedshare-shrink_1280/B4DZZfSA_pHwAo-/0/1745355287182?e=1748476800&v=beta&t=cZYPKa9tSZjeSoONQkGubnYnm6pMPHQLW_g5SkaNZTY",
+    image: "/lovable-uploads/9158adca-ff93-41b0-a692-f8b896b85750.png",
     category: "uniforms"
   },
   {
     id: 6,
     name: "Designer Medical Outfit",
     price: 2500,
-    image: "https://media.licdn.com/dms/image/v2/D4D22AQEOXRZSzU2Leg/feedshare-shrink_800/B4DZZfUlaPG4Ak-/0/1745355954681?e=1748476800&v=beta&t=I5H0lPhfc0GAXsxoe_3uOGEvDdkumjB3ti1-cCweFa4",
+    image: "/lovable-uploads/22b97347-ee25-4055-be30-335ee1f69fa1.png",
     category: "sets"
   },
   {
     id: 7,
     name: "Pattern Scrubs",
     price: 2500,
-    image: "https://media.licdn.com/dms/image/v2/D4D22AQFbXtg59oaimA/feedshare-shrink_800/B4DZZfUfP2HIBo-/0/1745355929947?e=1748476800&v=beta&t=hdfG3zBQQ6Va7xnrLTEzcmNk1BT-whTnMdMc7KQo7O4",
+    image: "/lovable-uploads/d59902dc-334a-453b-9b6e-a19a6ea6711f.png",
     category: "scrubs"
   },
   {
     id: 8,
     name: "Formal White Top",
     price: 2500,
-    image: "https://media.licdn.com/dms/image/v2/D4D22AQFe6G3VcOTPJg/feedshare-shrink_2048_1536/B4DZZfUfOkH4Ao-/0/1745355929399?e=1748476800&v=beta&t=b8SjGSmzv3k0C-xhvUw3WomwFkF5q6GIwZ79ud6o1Vw",
+    image: "/lovable-uploads/fd9e76e4-93e2-42ce-93b4-5345c2fa8129.png",
     category: "tops"
   },
   {
     id: 9,
     name: "Modern Scrub Set",
     price: 2500,
-    image: "https://media.licdn.com/dms/image/v2/D4D22AQEw7Rha0yIC4Q/feedshare-shrink_1280/B4DZZfUfOrHIAk-/0/1745355929865?e=1748476800&v=beta&t=fj8PW-KtnHqQn0qaOR0FlKxHIak_FP0iHB1mz6Yl9Ak",
+    image: "/lovable-uploads/d38df3a0-4bcb-4f2b-ae21-3ab75ee1e8af.png",
     category: "sets"
   },
   {
     id: 10,
     name: "Designer Blouse",
     price: 2500,
-    image: "https://media.licdn.com/dms/image/v2/D4D22AQE8GYaLOXLZ6Q/feedshare-shrink_800/B4DZZfUfP1GwAg-/0/1745355929597?e=1748476800&v=beta&t=hQKTU6-hQhAmLNs4Epf-RU0elRqv45Pp3RKW7npuclo",
+    image: "/lovable-uploads/95a41477-a67f-4933-9c4f-b6e0010c85a6.png",
     category: "tops"
   },
   {
     id: 11,
     name: "Casual Medical Shirt",
     price: 2500,
-    image: "https://media.licdn.com/dms/image/v2/D4D22AQF5qKU0SQw_tw/feedshare-shrink_1280/B4DZZfUfO8G4Ak-/0/1745355929876?e=1748476800&v=beta&t=w80HizN1X0lILrD9vBG3qjh2IpLc-BCK_aEqcHRHtAU",
+    image: "/lovable-uploads/e8faa0ab-10de-4306-9155-6f619238cd1e.png",
     category: "shirts"
   },
   {
     id: 12,
     name: "Professional Medical Uniform",
     price: 2500,
-    image: "https://media.licdn.com/dms/image/v2/D4D22AQG41S3kF1jElg/feedshare-shrink_800/B4DZZfUfOtG0Ag-/0/1745355929220?e=1748476800&v=beta&t=c7neXzGSDZfSeTIiTk3wDiN3MK_KXORVzNJ3hevqx1E",
+    image: "/lovable-uploads/83b0a7ad-bfff-4af2-8d51-da93798f4c46.png",
     category: "uniforms"
   },
   {
     id: 13,
     name: "Elegant Scrub Set",
     price: 2500,
-    image: "https://media.licdn.com/dms/image/v2/D4D22AQG8RVcJxklpxg/feedshare-shrink_2048_1536/B4DZZfUU5.HwAo-/0/1745355887092?e=1748476800&v=beta&t=IiojYG2LLsqK-OtEj74Xhh9rT8xe5hyQngvSiA4R1R0",
+    image: "/lovable-uploads/916a68bd-eb09-49e5-9ce0-4d01b4e06e56.png",
     category: "sets"
   },
   {
     id: 14,
     name: "Colorful Medical Blouse",
     price: 2500,
-    image: "https://media.licdn.com/dms/image/v2/D4D22AQEyl_PGVRtrdA/feedshare-shrink_2048_1536/B4DZZfUU6IG4As-/0/1745355888520?e=1748476800&v=beta&t=bxubFmLdGZ1lOIFhdS-nmKznUapk8xFaMRub8WigRiI",
+    image: "/lovable-uploads/9158adca-ff93-41b0-a692-f8b896b85750.png",
     category: "tops"
   },
   {
     id: 15,
     name: "Professional Medical Shirt",
     price: 2500,
-    image: "https://media.licdn.com/dms/image/v2/D4D22AQH2o5CqKRVe6g/feedshare-shrink_800/B4DZZfUU6XHwAg-/0/1745355888263?e=1748476800&v=beta&t=uthXc_kjrnQb4ZYW3vIR-4i_UG7l-rGLlbom4noNZcA",
+    image: "/lovable-uploads/22b97347-ee25-4055-be30-335ee1f69fa1.png",
     category: "shirts"
   },
   {
     id: 16,
     name: "Elegant White Set",
     price: 2500,
-    image: "https://media.licdn.com/dms/image/v2/D4D22AQGTmh43p6czoQ/feedshare-shrink_1280/B4DZZfUU6VGgAk-/0/1745355887797?e=1748476800&v=beta&t=H4p-jEPEfFhamalmhIo3lXl3XGnxqhh07aie07g8psM",
+    image: "/lovable-uploads/d59902dc-334a-453b-9b6e-a19a6ea6711f.png",
     category: "sets"
   },
   {
     id: 17,
     name: "Patterned Medical Uniform",
     price: 2500,
-    image: "https://media.licdn.com/dms/image/v2/D4D22AQEzusTjoXYluA/feedshare-shrink_1280/B4DZZfUU6gGwAk-/0/1745355888673?e=1748476800&v=beta&t=8STFZVwhtE0VPpHbzBXA5a3Tb8A3ogZjf_GR6TnougY",
+    image: "/lovable-uploads/fd9e76e4-93e2-42ce-93b4-5345c2fa8129.png",
     category: "uniforms"
   },
   {
     id: 18,
     name: "Surgical Medical Set",
     price: 2500,
-    image: "https://media.licdn.com/dms/image/v2/D4D22AQFcDp7CgVopfg/feedshare-shrink_2048_1536/B4DZZfUU6THIAs-/0/1745355887713?e=1748476800&v=beta&t=Kch-QmDT9VjST1y2ibCilSRsfmccFcwSuuzimC7s6wY",
+    image: "/lovable-uploads/d38df3a0-4bcb-4f2b-ae21-3ab75ee1e8af.png",
     category: "sets"
   },
   {
     id: 19,
     name: "Modern Medical Pattern",
     price: 2500,
-    image: "https://media.licdn.com/dms/image/v2/D4D22AQHa6zJE7Dc0mQ/feedshare-shrink_1280/B4DZZfUU61H4Ak-/0/1745355888284?e=1748476800&v=beta&t=ln_j5ceInMQn6okp-WbrSva9EC1pFf-BZhKZibWz-gQ",
+    image: "/lovable-uploads/95a41477-a67f-4933-9c4f-b6e0010c85a6.png",
     category: "uniforms"
   },
   {
     id: 20,
     name: "Summer Scrub Set",
     price: 2500,
-    image: "https://media.licdn.com/dms/image/v2/D4D22AQFPpgCSpQx51w/feedshare-shrink_800/B4DZZfUlaGG4Ak-/0/1745355954787?e=1748476800&v=beta&t=DHxNUcSA13aAMVY0K15onH2ACcO5YU-mGzpmNRYuxBw",
+    image: "/lovable-uploads/e8faa0ab-10de-4306-9155-6f619238cd1e.png",
     category: "sets"
   },
   {
     id: 21,
     name: "Premium Surgical Scrubs",
     price: 1300,
-    image: "https://media.licdn.com/dms/image/v2/D4D22AQHfawsONjQCJg/feedshare-shrink_2048_1536/B4DZahpFocH0Ao-/0/1746468650816?e=1749081600&v=beta&t=0IzNqf2FdQ3zRG3RN_wFJ5hpnsLKe6IbScYQf8qpDLs",
+    image: "/lovable-uploads/83b0a7ad-bfff-4af2-8d51-da93798f4c46.png",
     category: "scrubs"
   },
   {
     id: 22,
     name: "Advanced Medical Uniform",
     price: 1300,
-    image: "https://media.licdn.com/dms/image/v2/D4D22AQES0n3mMOGrsA/feedshare-shrink_2048_1536/B4DZahpFrhGwAo-/0/1746468643873?e=1749081600&v=beta&t=3xFNRMbPI_GynNYTK-53tQxrK5x_Z7HTkaEErkYgLZE",
+    image: "/lovable-uploads/916a68bd-eb09-49e5-9ce0-4d01b4e06e56.png",
     category: "uniforms"
   },
   {
     id: 23,
     name: "Professional Medical Set",
     price: 1300,
-    image: "https://media.licdn.com/dms/image/v2/D4D22AQEqzLz6_32CIw/feedshare-shrink_2048_1536/B4DZahpFrNHwAw-/0/1746468651371?e=1749081600&v=beta&t=1vpb6khl9JtAUPuf0f_QUUPd-IBEl58zimC7q2rT6z8",
+    image: "/lovable-uploads/9158adca-ff93-41b0-a692-f8b896b85750.png",
     category: "sets"
   },
   {
     id: 24,
     name: "Elite Medical Scrubs",
     price: 1300,
-    image: "https://media.licdn.com/dms/image/v2/D4D22AQFe6ISJp2EUPQ/feedshare-shrink_2048_1536/B4DZahpFtZGcAo-/0/1746468652287?e=1749081600&v=beta&t=kIPXWmQpVApziYjJBSK3yyRgwW4loP6-FXOoXW_ZBY4",
+    image: "/lovable-uploads/22b97347-ee25-4055-be30-335ee1f69fa1.png",
     category: "scrubs"
   },
   {
     id: 25,
     name: "Premium Medical Top",
     price: 1300,
-    image: "https://media.licdn.com/dms/image/v2/D4D22AQFA6eazA2iOeg/feedshare-shrink_1280/B4DZahpFvCHEAk-/0/1746468645952?e=1749081600&v=beta&t=UKiGA1dfW9poFgzm3DrwHROlZLySqg0NBIPHRPLHCVQ",
+    image: "/lovable-uploads/d59902dc-334a-453b-9b6e-a19a6ea6711f.png",
     category: "tops"
   },
   {
     id: 26,
     name: "Professional Nursing Uniform",
     price: 1300,
-    image: "https://media.licdn.com/dms/image/v2/D4D22AQF7QWMrLExaew/feedshare-shrink_800/B4DZahpFwkGcAk-/0/1746468636819?e=1749081600&v=beta&t=ffgUDLpmmFSwdVJK3oWoR6jBrWRmuv2h5ELF32AVEOs",
+    image: "/lovable-uploads/fd9e76e4-93e2-42ce-93b4-5345c2fa8129.png",
     category: "uniforms"
   },
   {
     id: 27,
     name: "Premium Medical Coat",
     price: 1300,
-    image: "https://media.licdn.com/dms/image/v2/D4D22AQHjCG0lNWq17Q/feedshare-shrink_1280/B4DZahpFiTG0Ak-/0/1746468636217?e=1749081600&v=beta&t=k2Vfe_kLqGDIhDKaShTedzJmiUcDVxHyXWWzrMN0We4",
+    image: "/lovable-uploads/d38df3a0-4bcb-4f2b-ae21-3ab75ee1e8af.png",
     category: "coats"
   },
   {
     id: 28,
     name: "Doctor's Premium Set",
     price: 1300,
-    image: "https://media.licdn.com/dms/image/v2/D4D22AQEFnYUkq_jAgg/feedshare-shrink_1280/B4DZahpFiMHQAo-/0/1746468635307?e=1749081600&v=beta&t=L9jGDuMF7osjEx7nn6OlV7_hmWp1oQUa19bKGKL2K00",
+    image: "/lovable-uploads/95a41477-a67f-4933-9c4f-b6e0010c85a6.png",
     category: "sets"
   }
 ];
@@ -362,7 +362,7 @@ const App = () => {
                     <div className="container mx-auto px-4">
                       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                         <div>
-                          <h3 className="font-bold text-xl mb-4">HUBU INFINITY SCRUBS</h3>
+                          <h3 className="font-bold text-xl mb-4">HUBU ROYAL SCRUBS</h3>
                           <p className="text-gray-200">
                             Premium quality medical scrubs and uniforms for healthcare professionals.
                           </p>
@@ -396,12 +396,12 @@ const App = () => {
                           <h3 className="font-bold mb-4">Contact</h3>
                           <p className="text-gray-200 mb-2">Nairobi, Kenya</p>
                           <p className="text-gray-200 mb-2">+254 714149455</p>
-                          <p className="text-gray-200">info@hubuinfinityscrubs.com</p>
+                          <p className="text-gray-200">info@huburoyalscrubs.com</p>
                         </div>
                       </div>
                       
                       <div className="border-t border-white/20 mt-8 pt-8 text-center text-sm text-gray-300">
-                        © {new Date().getFullYear()} HUBU INFINITY SCRUBS. All rights reserved.
+                        © {new Date().getFullYear()} HUBU ROYAL SCRUBS. All rights reserved.
                       </div>
                     </div>
                   </footer>

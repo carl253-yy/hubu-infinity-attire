@@ -7,7 +7,7 @@ import ProductSection from '@/components/ProductSection';
 import WhyChooseUsSection from '@/components/WhyChooseUsSection';
 import Footer from '@/components/Footer';
 
-// Updated product data with new jacket products and all uploaded scrubs
+// Updated product data with fixed image paths
 const products: Product[] = [
   // MEDICAL JACKETS Category - NEW
   {
@@ -74,26 +74,26 @@ const products: Product[] = [
     category: "jackets"
   },
 
-  // SCRUBS Category
+  // SCRUBS Category with fixed image paths
   {
     id: 1,
     name: "Green Surgical Scrubs",
     price: 1300,
-    image: "https://media.licdn.com/dms/image/v2/D4D22AQEL8QwDRRm7Iw/feedshare-shrink_1280/B4DZZfSBA.G8Ak-/0/1745355286983?e=1748476800&v=beta&t=V3irlIOoo_mfeJT0PSpVc5IVsqVxJeX2P-jnbyuzLDc",
+    image: "/lovable-uploads/95a41477-a67f-4933-9c4f-b6e0010c85a6.png",
     category: "scrubs"
   },
   {
     id: 2,
     name: "Healing Hands Men's Scrubs Top 3 Pocket V-Neck Athletic Fit",
     price: 1300,
-    image: "https://media.licdn.com/dms/image/v2/D4D22AQHU4RFkFV7veQ/feedshare-shrink_800/B4DZZfSBBRGgAk-/0/1745355287285?e=1748476800&v=beta&t=DeWrJcJ_G8Dul5JnAyFJTF0V-7mEtFsi93D7DRTfoxI",
+    image: "/lovable-uploads/e8faa0ab-10de-4306-9155-6f619238cd1e.png",
     category: "scrubs"
   },
   {
     id: 3,
     name: "Blue Pattern Scrubs",
     price: 2500,
-    image: "https://media.licdn.com/dms/image/v2/D4D22AQFbXtg59oaimA/feedshare-shrink_800/B4DZZfUfP2HIBo-/0/1745355929947?e=1748476800&v=beta&t=hdfG3zBQQ6Va7xnrLTEzcmNk1BT-whTnMdMc7KQo7O4",
+    image: "/lovable-uploads/83b0a7ad-bfff-4af2-8d51-da93798f4c46.png",
     category: "scrubs"
   },
   {
@@ -111,26 +111,26 @@ const products: Product[] = [
     category: "scrubs"
   },
 
-  // CLINICAL COATS Category
+  // CLINICAL COATS Category with fixed image paths
   {
     id: 4,
     name: "Modern Medical Pattern Coat",
     price: 2500,
-    image: "https://media.licdn.com/dms/image/v2/D4D22AQHa6zJE7Dc0mQ/feedshare-shrink_1280/B4DZZfUU61H4Ak-/0/1745355888284?e=1748476800&v=beta&t=ln_j5ceInMQn6okp-WbrSva9EC1pFf-BZhKZibWz-gQ",
+    image: "/lovable-uploads/916a68bd-eb09-49e5-9ce0-4d01b4e06e56.png",
     category: "coats"
   },
   {
     id: 5,
     name: "Brown Professional Medical Shirt",
     price: 2500,
-    image: "https://media.licdn.com/dms/image/v2/D4D22AQH2o5CqKRVe6g/feedshare-shrink_800/B4DZZfUU6XHwAg-/0/1745355888263?e=1748476800&v=beta&t=uthXc_kjrnQb4ZYW3vIR-4i_UG7l-rGLlbom4noNZcA",
+    image: "/lovable-uploads/9158adca-ff93-41b0-a692-f8b896b85750.png",
     category: "coats"
   },
   {
     id: 6,
     name: "Professional Clinical Coat",
     price: 2500,
-    image: "https://media.licdn.com/dms/image/v2/D4D22AQGq0Q1fQK-tBQ/feedshare-shrink_800/B4DZZfUU6YGgAg-/0/1745355888195?e=1749686400&v=beta&t=TC1KgQDj9sdduXBE9Vz4tO1uqiq25ghFYhWSRdsoj8A",
+    image: "/lovable-uploads/22b97347-ee25-4055-be30-335ee1f69fa1.png",
     category: "coats"
   },
   {
@@ -148,19 +148,19 @@ const products: Product[] = [
     category: "coats"
   },
 
-  // ACCESSORIES & SPECIALTY Category
+  // ACCESSORIES & SPECIALTY Category with fixed image paths
   {
     id: 10,
     name: "Specialty Medical Apparel",
     price: 2600,
-    image: "/lovable-uploads/4f491347-149d-4a6f-b708-6dfe055887e9.png",
+    image: "/lovable-uploads/d59902dc-334a-453b-9b6e-a19a6ea6711f.png",
     category: "specialty"
   },
   {
     id: 11,
     name: "Designer Medical Wear",
     price: 3000,
-    image: "/lovable-uploads/56ee4598-98a9-444f-9ae2-5dcda4de0c50.png",
+    image: "/lovable-uploads/fd9e76e4-93e2-42ce-93b4-5345c2fa8129.png",
     category: "designer"
   },
   {
