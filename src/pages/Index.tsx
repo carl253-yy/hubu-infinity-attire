@@ -7,9 +7,67 @@ import ProductSection from '@/components/ProductSection';
 import WhyChooseUsSection from '@/components/WhyChooseUsSection';
 import Footer from '@/components/Footer';
 
-// Updated product data with fixed image paths
+// Updated product data with new scrubs at KSh 1,300
 const products: Product[] = [
-  // MEDICAL JACKETS Category - NEW
+  // NEW SCRUBS - KSh 1,300 each
+  {
+    id: 38,
+    name: "Professional Grey Medical Scrubs - Medium",
+    price: 1300,
+    image: "/lovable-uploads/d3ff3963-0b90-4ad0-81a4-5ac01edb1655.png",
+    category: "scrubs"
+  },
+  {
+    id: 39,
+    name: "Pink & Grey Professional Scrubs - Medium", 
+    price: 1300,
+    image: "/lovable-uploads/f90ac883-f939-42d6-a87f-86c970cae385.png",
+    category: "scrubs"
+  },
+  {
+    id: 40,
+    name: "Navy Blue Professional Scrubs - Medium",
+    price: 1300,
+    image: "/lovable-uploads/11b0ff98-d7ab-44e6-93fc-76af3dd59578.png",
+    category: "scrubs"
+  },
+  {
+    id: 41,
+    name: "Pink Accent Medical Scrubs - Medium",
+    price: 1300,
+    image: "/lovable-uploads/02292601-5369-462f-afe7-4b48e78215e7.png",
+    category: "scrubs"
+  },
+  {
+    id: 42,
+    name: "Classic Navy Medical Scrubs - Small/Medium",
+    price: 1300,
+    image: "/lovable-uploads/0f627049-02b1-4315-90a5-378b49ce3c0c.png",
+    category: "scrubs"
+  },
+  {
+    id: 43,
+    name: "Royal Purple Medical Scrubs - Medium/Large",
+    price: 1300,
+    image: "/lovable-uploads/fdb95c8e-1098-464f-b0b7-c26d592b7733.png",
+    category: "scrubs"
+  },
+  {
+    id: 44,
+    name: "Teal Medical Scrubs - Medium",
+    price: 1300,
+    image: "/lovable-uploads/8c8451bf-1176-4cc3-9e97-7ef4d9c0864b.png",
+    category: "scrubs"
+  },
+  {
+    id: 45,
+    name: "Premium Grey Medical Scrubs - Medium",
+    price: 1300,
+    image: "/lovable-uploads/af16d011-7505-4b5c-b5f6-39b39feea7b8.png",
+    category: "scrubs"
+  },
+
+  // MEDICAL JACKETS Category
   {
     id: 29,
     name: "Navy Blue Medical Jacket - Medium",
@@ -74,7 +132,7 @@ const products: Product[] = [
     category: "jackets"
   },
 
-  // SCRUBS Category with fixed image paths
+  // ORIGINAL SCRUBS Category
   {
     id: 1,
     name: "Green Surgical Scrubs",
@@ -111,7 +169,7 @@ const products: Product[] = [
     category: "scrubs"
   },
 
-  // CLINICAL COATS Category with fixed image paths
+  // CLINICAL COATS Category
   {
     id: 4,
     name: "Modern Medical Pattern Coat",
@@ -148,7 +206,7 @@ const products: Product[] = [
     category: "coats"
   },
 
-  // ACCESSORIES & SPECIALTY Category with fixed image paths
+  // ACCESSORIES & SPECIALTY Category
   {
     id: 10,
     name: "Specialty Medical Apparel",
