@@ -14,7 +14,7 @@ import Checkout from "./pages/Checkout";
 import Success from "./pages/Success";
 import CartPage from "./pages/CartPage";
 import Products from "./pages/Products";
-import SearchPage from "./pages/SearchPage"; // New search page
+import SearchPage from "./pages/SearchPage";
 import Navbar from "./components/Navbar";
 import Cart from "./components/Cart";
 import ProductDetail from "./components/ProductDetail";
@@ -31,9 +31,73 @@ import { Product } from "./types";
 
 const queryClient = new QueryClient();
 
-// Product data
+// Complete product data including all new jacket products
 const products: Product[] = [
-  // Original prices converted from $ to KSh
+  // MEDICAL JACKETS Category - NEW
+  {
+    id: 29,
+    name: "Navy Blue Medical Jacket - Medium",
+    price: 800,
+    image: "/lovable-uploads/95a41477-a67f-4933-9c4f-b6e0010c85a6.png",
+    category: "jackets"
+  },
+  {
+    id: 30,
+    name: "Purple Medical Jacket - Medium", 
+    price: 800,
+    image: "/lovable-uploads/e8faa0ab-10de-4306-9155-6f619238cd1e.png",
+    category: "jackets"
+  },
+  {
+    id: 31,
+    name: "Teal Medical Jacket - Medium",
+    price: 800,
+    image: "/lovable-uploads/83b0a7ad-bfff-4af2-8d51-da93798f4c46.png",
+    category: "jackets"
+  },
+  {
+    id: 32,
+    name: "Blue Medical Jacket - X Large",
+    price: 800,
+    image: "/lovable-uploads/916a68bd-eb09-49e5-9ce0-4d01b4e06e56.png",
+    category: "jackets"
+  },
+  {
+    id: 33,
+    name: "Checkered Medical Jacket - Medium",
+    price: 800,
+    image: "/lovable-uploads/9158adca-ff93-41b0-a692-f8b896b85750.png",
+    category: "jackets"
+  },
+  {
+    id: 34,
+    name: "Royal Blue Medical Jacket - Medium",
+    price: 800,
+    image: "/lovable-uploads/22b97347-ee25-4055-be30-335ee1f69fa1.png",
+    category: "jackets"
+  },
+  {
+    id: 35,
+    name: "Heart Pattern Medical Jacket - C Large",
+    price: 800,
+    image: "/lovable-uploads/d59902dc-334a-453b-9b6e-a19a6ea6711f.png",
+    category: "jackets"
+  },
+  {
+    id: 36,
+    name: "Premium Blue Medical Jacket - X Large",
+    price: 800,
+    image: "/lovable-uploads/fd9e76e4-93e2-42ce-93b4-5345c2fa8129.png",
+    category: "jackets"
+  },
+  {
+    id: 37,
+    name: "Floral Pattern Medical Jacket - Medium",
+    price: 800,
+    image: "/lovable-uploads/d38df3a0-4bcb-4f2b-ae21-3ab75ee1e8af.png",
+    category: "jackets"
+  },
+
   {
     id: 1,
     name: "Men's Scrubs Top 3 Pocket V-Neck Athletic Fit",
@@ -174,7 +238,6 @@ const products: Product[] = [
     image: "https://media.licdn.com/dms/image/v2/D4D22AQFPpgCSpQx51w/feedshare-shrink_800/B4DZZfUlaGG4Ak-/0/1745355954787?e=1748476800&v=beta&t=DHxNUcSA13aAMVY0K15onH2ACcO5YU-mGzpmNRYuxBw",
     category: "sets"
   },
-  // Additional products
   {
     id: 21,
     name: "Premium Surgical Scrubs",
@@ -291,7 +354,6 @@ const App = () => {
                         </ProtectedRoute>
                       } />
                       
-                      {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                       <Route path="*" element={<NotFound />} />
                     </Routes>
                   </main>

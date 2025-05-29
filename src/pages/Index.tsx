@@ -7,66 +7,73 @@ import ProductCard from '@/components/ProductCard';
 import { Product } from '@/types';
 import { useCart } from '@/context/CartContext';
 
-// Updated product data with reorganized images
+// Updated product data with new jacket products and all uploaded scrubs
 const products: Product[] = [
+  // MEDICAL JACKETS Category - NEW
+  {
+    id: 29,
+    name: "Navy Blue Medical Jacket - Medium",
+    price: 800,
+    image: "/lovable-uploads/95a41477-a67f-4933-9c4f-b6e0010c85a6.png",
+    category: "jackets"
+  },
+  {
+    id: 30,
+    name: "Purple Medical Jacket - Medium", 
+    price: 800,
+    image: "/lovable-uploads/e8faa0ab-10de-4306-9155-6f619238cd1e.png",
+    category: "jackets"
+  },
+  {
+    id: 31,
+    name: "Teal Medical Jacket - Medium",
+    price: 800,
+    image: "/lovable-uploads/83b0a7ad-bfff-4af2-8d51-da93798f4c46.png",
+    category: "jackets"
+  },
+  {
+    id: 32,
+    name: "Blue Medical Jacket - X Large",
+    price: 800,
+    image: "/lovable-uploads/916a68bd-eb09-49e5-9ce0-4d01b4e06e56.png",
+    category: "jackets"
+  },
+  {
+    id: 33,
+    name: "Checkered Medical Jacket - Medium",
+    price: 800,
+    image: "/lovable-uploads/9158adca-ff93-41b0-a692-f8b896b85750.png",
+    category: "jackets"
+  },
+  {
+    id: 34,
+    name: "Royal Blue Medical Jacket - Medium",
+    price: 800,
+    image: "/lovable-uploads/22b97347-ee25-4055-be30-335ee1f69fa1.png",
+    category: "jackets"
+  },
+  {
+    id: 35,
+    name: "Heart Pattern Medical Jacket - C Large",
+    price: 800,
+    image: "/lovable-uploads/d59902dc-334a-453b-9b6e-a19a6ea6711f.png",
+    category: "jackets"
+  },
+  {
+    id: 36,
+    name: "Premium Blue Medical Jacket - X Large",
+    price: 800,
+    image: "/lovable-uploads/fd9e76e4-93e2-42ce-93b4-5345c2fa8129.png",
+    category: "jackets"
+  },
+  {
+    id: 37,
+    name: "Floral Pattern Medical Jacket - Medium",
+    price: 800,
+    image: "/lovable-uploads/d38df3a0-4bcb-4f2b-ae21-3ab75ee1e8af.png",
+    category: "jackets"
+  },
 
-  // SCRUBS JACKET 
-   {
-  id: 1,
-  name: "Proffesional jacket ",
-  price: 800,
-  image: "https://media.licdn.com/dms/image/v2/D4D22AQE-I5Sw8TyKuQ/feedshare-shrink_2048_1536/B4DZcWA6AdGwAo-/0/1748421033470?e=1751500800&v=beta&t=W-iSIlWPFyBnbJFyDfRAN7IhNKj9HpzCnZAv7Pmc-7Q",
-  category: "Jacket"
-},
-{
-  id: 2,
-  name: "Surgical Medical jacket ",
-  price: 800,
-  image: "https://media.licdn.com/dms/image/v2/D4D22AQGWteOxHoGDAQ/feedshare-shrink_1280/B4DZcWA6AXGkAk-/0/1748421032258?e=1751500800&v=beta&t=9jms7mCR1dv9wH_AEqpVzoTgcTpliQ04fDPufmfbVYA",
-  category: "jacket"
-},
-{
-  id: 3,
-  name: "Royal medical jacket ",
-  price: 800,
-  image: "https://media.licdn.com/dms/image/v2/D4D22AQEG9blCRhUAwA/feedshare-shrink_800/B4DZcWA5_WHMAg-/0/1748421028031?e=1751500800&v=beta&t=Mx3sky0a542TgXPmgqyyp139q-Rtkg637emaeepQTZ0",
-  category: "jacket"
-},
-{
-  id: 4,
-  name: "healing hands Medical jacket ",
-  price: 800,
-  image: "https://media.licdn.com/dms/image/v2/D4D22AQEoIOi5uwITWw/feedshare-shrink_1280/B4DZcWA6AsGkAk-/0/1748421029027?e=1751500800&v=beta&t=V1pRo0BxJwWLjswGj5bVt97mxHmuf3l5nCKgjpkZ8Rc",
-  category: "jacket"
-},
-{
-  id: 5,
-  name: "Professional Clinical jacket ",
-  price: 800,
-  image: "https://media.licdn.com/dms/image/v2/D4D22AQESIryx1pezpA/feedshare-shrink_2048_1536/B4DZcWA6ABGkAo-/0/1748421034417?e=1751500800&v=beta&t=t8OxMS0vZiaURm21Ya_Znl6LkZiwujQAIJPFL5KW7SU",
-  category: "jacket"
-},
-{
-  id: 6,
-  name: "Medical surgical Jacket ",
-  price: 800,
-  image: "https://media.licdn.com/dms/image/v2/D4D22AQHSS0xTJRt_qQ/feedshare-shrink_1280/B4DZcWA6A9GgAk-/0/1748421033185?e=1751500800&v=beta&t=fGgQGalV1KzmFo0sIJyfHMAPar9sobEsGP1EFTQYwmw",
-  category: "jacket"
-},
-{
-  id: 7,
-  name: "Healing hand medical jacket",
-  price: 800,
-  image: "https://media.licdn.com/dms/image/v2/D4D22AQEegvsi6_VJwg/feedshare-shrink_1280/B4DZcWA6A4IAAk-/0/1748421034589?e=1751500800&v=beta&t=5cEKTvlSQ4UagsjsSMJoZdtBlTDlcrcdpWWeDEKGHNo",
-  category: "jacket"
-},
-{
-  id: 8,
-  name: " Professional surgical jacket",
-  price: 800,
-  image: "https://media.licdn.com/dms/image/v2/D4D22AQGWo2BU_aKs_w/feedshare-shrink_2048_1536/B4DZcWA6BWG8Ao-/0/1748421033563?e=1751500800&v=beta&t=zNmhSDKRCW_m0dmLquHn6oGQ6RRxljpI7nbo11a_MJk",
-  category: "jacket"
-}
   // SCRUBS Category
   {
     id: 1,
@@ -245,45 +252,29 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Scrubs Section */}
+      {/* Medical Jackets Section - NEW */}
       <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-4 text-gray-900">MEDICAL JACKETS</h2>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+            {products.filter(p => p.category === 'jackets').map((product) => (
+              <ProductCard key={product.id} product={product} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Scrubs Section */}
+      <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4 text-gray-900">SCRUBS</h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {products.filter(p => p.category === 'scrubs').map((product) => (
-              <div key={product.id} className="group relative bg-white rounded-lg overflow-hidden border border-gray-200 transition-all duration-300 hover:shadow-md">
-                <Link to={`/product/${product.id}`} className="block">
-                  <div className="aspect-square overflow-hidden">
-                    <img 
-                      src={product.image} 
-                      alt={product.name} 
-                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                    />
-                  </div>
-                </Link>
-                <div className="p-4">
-                  <Link to={`/product/${product.id}`} className="block">
-                    <h3 className="text-sm font-medium text-gray-800 line-clamp-2 mb-1 h-10">
-                      {product.name}
-                    </h3>
-                  </Link>
-                  <div className="flex items-center justify-end mt-2">
-                    <Button 
-                      size="sm" 
-                      variant="ghost"
-                      className="text-kenyan-brown hover:text-kenyan-red hover:bg-transparent"
-                      onClick={(e) => {
-                        e.preventDefault();
-                        addToCart(product);
-                      }}
-                    >
-                      <ShoppingCart className="h-4 w-4" />
-                    </Button>
-                  </div>
-                </div>
-              </div>
+              <ProductCard key={product.id} product={product} />
             ))}
           </div>
         </div>
@@ -297,37 +288,7 @@ const Index = () => {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
             {products.filter(p => p.category === 'coats').map((product) => (
-              <div key={product.id} className="group relative bg-white rounded-lg overflow-hidden border border-gray-200 transition-all duration-300 hover:shadow-md">
-                <Link to={`/product/${product.id}`} className="block">
-                  <div className="aspect-square overflow-hidden">
-                    <img 
-                      src={product.image} 
-                      alt={product.name} 
-                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                    />
-                  </div>
-                </Link>
-                <div className="p-4">
-                  <Link to={`/product/${product.id}`} className="block">
-                    <h3 className="text-sm font-medium text-gray-800 line-clamp-2 mb-1 h-10">
-                      {product.name}
-                    </h3>
-                  </Link>
-                  <div className="flex items-center justify-end mt-2">
-                    <Button 
-                      size="sm" 
-                      variant="ghost"
-                      className="text-kenyan-brown hover:text-kenyan-red hover:bg-transparent"
-                      onClick={(e) => {
-                        e.preventDefault();
-                        addToCart(product);
-                      }}
-                    >
-                      <ShoppingCart className="h-4 w-4" />
-                    </Button>
-                  </div>
-                </div>
-              </div>
+              <ProductCard key={product.id} product={product} />
             ))}
           </div>
         </div>
@@ -341,37 +302,7 @@ const Index = () => {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {products.filter(p => ['specialty', 'designer', 'kits'].includes(p.category)).map((product) => (
-              <div key={product.id} className="group relative bg-white rounded-lg overflow-hidden border border-gray-200 transition-all duration-300 hover:shadow-md">
-                <Link to={`/product/${product.id}`} className="block">
-                  <div className="aspect-square overflow-hidden">
-                    <img 
-                      src={product.image} 
-                      alt={product.name} 
-                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                    />
-                  </div>
-                </Link>
-                <div className="p-4">
-                  <Link to={`/product/${product.id}`} className="block">
-                    <h3 className="text-sm font-medium text-gray-800 line-clamp-2 mb-1 h-10">
-                      {product.name}
-                    </h3>
-                  </Link>
-                  <div className="flex items-center justify-end mt-2">
-                    <Button 
-                      size="sm" 
-                      variant="ghost"
-                      className="text-kenyan-brown hover:text-kenyan-red hover:bg-transparent"
-                      onClick={(e) => {
-                        e.preventDefault();
-                        addToCart(product);
-                      }}
-                    >
-                      <ShoppingCart className="h-4 w-4" />
-                    </Button>
-                  </div>
-                </div>
-              </div>
+              <ProductCard key={product.id} product={product} />
             ))}
           </div>
         </div>
