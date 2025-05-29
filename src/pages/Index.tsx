@@ -1,11 +1,11 @@
 
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { Button } from '@/components/ui/button';
-import { ShoppingCart, Facebook } from 'lucide-react';
-import ProductCard from '@/components/ProductCard';
+import React from 'react';
 import { Product } from '@/types';
-import { useCart } from '@/context/CartContext';
+import HeroSection from '@/components/HeroSection';
+import QuickLinksSection from '@/components/QuickLinksSection';
+import ProductSection from '@/components/ProductSection';
+import WhyChooseUsSection from '@/components/WhyChooseUsSection';
+import Footer from '@/components/Footer';
 
 // Updated product data with new jacket products and all uploaded scrubs
 const products: Product[] = [
@@ -180,212 +180,41 @@ const products: Product[] = [
 ];
 
 const Index = () => {
-  const [cartOpen, setCartOpen] = useState(false);
-  const { addToCart } = useCart();
-  
   return (
     <>
-      {/* Hero Section */}
-      <section className="relative bg-kenyan-sand py-16 md:py-24">
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="grid md:grid-cols-2 gap-8 items-center">
-            <div>
-              <div className="flex items-center mb-6">
-                <img 
-                  src="/lovable-uploads/d3add6da-f9a7-42b0-b64f-522dc0e7397d.png" 
-                  alt="Royal Scrubs Logo" 
-                  className="h-16 w-16 mr-4"
-                />
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-kenyan-brown">
-                  ROYAL SCRUBS
-                </h1>
-              </div>
-              <p className="text-lg mb-8 text-gray-700">
-                Experience comfort and durability with our medical clothing. Crafted with quality materials, our attire ensures functionality and style, providing you with confidence and professionalism through your demanding shifts.
-              </p>
-              <div className="flex flex-wrap gap-4">
-                <Link to="/login">
-                  <Button size="lg" className="bg-kenyan-red hover:bg-kenyan-red/90">
-                    Login to Shop
-                  </Button>
-                </Link>
-                <Button 
-                  variant="outline" 
-                  size="lg"
-                  onClick={() => setCartOpen(true)}
-                >
-                  <ShoppingCart className="mr-2 h-5 w-5" />
-                  View Cart
-                </Button>
-              </div>
-            </div>
-            <div className="hidden md:block">
-              <div className="aspect-[4/5] relative rounded-lg overflow-hidden shadow-lg">
-                <img 
-                  src="/lovable-uploads/0ef9fac7-2a53-4f6e-9db1-163a7ef21f4a.png" 
-                  alt="Featured Medical Scrubs" 
-                  className="absolute inset-0 w-full h-full object-cover"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Quick Links Section */}
-      <section className="py-8 bg-white border-b">
-        <div className="container mx-auto px-4">
-          <div className="text-center">
-            <h2 className="text-2xl font-bold mb-6 text-gray-900">Quick Links</h2>
-            <div className="flex justify-center">
-              <a 
-                href="https://www.facebook.com/profile.php?id=100070408316570&mibextid=rS40aB7S9Ucbxw6v"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition-colors"
-              >
-                <Facebook className="h-5 w-5" />
-                Follow us on Facebook
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Medical Jackets Section - NEW */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4 text-gray-900">MEDICAL JACKETS</h2>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-            {products.filter(p => p.category === 'jackets').map((product) => (
-              <ProductCard key={product.id} product={product} />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Scrubs Section */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4 text-gray-900">SCRUBS</h2>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-            {products.filter(p => p.category === 'scrubs').map((product) => (
-              <ProductCard key={product.id} product={product} />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Clinical Coats Section */}
-      <section className="py-16" style={{ backgroundColor: '#E91E63' }}>
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4 text-white">CLINICAL COATS</h2>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-            {products.filter(p => p.category === 'coats').map((product) => (
-              <ProductCard key={product.id} product={product} />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Accessories & Specialty Items Section */}
-      <section className="py-16 bg-green-50">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4 text-gray-900">ACCESSORIES & SPECIALTY</h2>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-            {products.filter(p => ['specialty', 'designer', 'kits'].includes(p.category)).map((product) => (
-              <ProductCard key={product.id} product={product} />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Why Choose Us Section */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4">Why Choose Royal Scrubs</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              We provide high-quality medical apparel designed specifically for healthcare professionals.
-            </p>
-          </div>
-          
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="text-center p-6">
-              <div className="w-16 h-16 bg-kenyan-sand rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-kenyan-brown" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold mb-2">Premium Quality</h3>
-              <p className="text-gray-600">
-                Our medical scrubs are made from high-quality materials designed to last through countless shifts.
-              </p>
-            </div>
-            
-            <div className="text-center p-6">
-              <div className="w-16 h-16 bg-kenyan-sand rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-kenyan-brown" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold mb-2">Comfort First</h3>
-              <p className="text-gray-600">
-                Designed for all-day comfort with breathable fabrics and ergonomic designs for healthcare professionals.
-              </p>
-            </div>
-            
-            <div className="text-center p-6">
-              <div className="w-16 h-16 bg-kenyan-sand rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-kenyan-brown" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold mb-2">Stylish Designs</h3>
-              <p className="text-gray-600">
-                Professional apparel that doesn't compromise on style, with modern cuts and attractive colors.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="bg-kenyan-brown text-white py-8">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col items-center space-y-4">
-            <div className="text-center">
-              <h3 className="text-xl font-bold mb-2">ROYAL SCRUBS</h3>
-              <p className="text-kenyan-sand">Quality Medical Apparel for Healthcare Professionals</p>
-            </div>
-            
-            <div className="flex items-center space-x-4">
-              <span className="text-kenyan-sand">Follow us:</span>
-              <a
-                href="https://www.facebook.com/profile.php?id=100070408316570&mibextid=rS40aB7S9Ucbxw6v"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center w-10 h-10 bg-blue-600 hover:bg-blue-700 rounded-full transition-colors"
-                aria-label="Follow us on Facebook"
-              >
-                <Facebook className="h-5 w-5" />
-              </a>
-            </div>
-            
-            <div className="text-center text-sm text-kenyan-sand">
-              <p>&copy; 2024 Royal Scrubs. All rights reserved.</p>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <HeroSection />
+      <QuickLinksSection />
+      
+      <ProductSection 
+        title="MEDICAL JACKETS"
+        products={products.filter(p => p.category === 'jackets')}
+        backgroundColor="bg-gray-50"
+      />
+      
+      <ProductSection 
+        title="SCRUBS"
+        products={products.filter(p => p.category === 'scrubs')}
+        backgroundColor="bg-white"
+        gridCols="grid-cols-1 sm:grid-cols-2 md:grid-cols-3"
+      />
+      
+      <ProductSection 
+        title="CLINICAL COATS"
+        products={products.filter(p => p.category === 'coats')}
+        backgroundColor=""
+        textColor="text-white"
+        style={{ backgroundColor: '#E91E63' }}
+      />
+      
+      <ProductSection 
+        title="ACCESSORIES & SPECIALTY"
+        products={products.filter(p => ['specialty', 'designer', 'kits'].includes(p.category))}
+        backgroundColor="bg-green-50"
+        gridCols="grid-cols-1 sm:grid-cols-2 md:grid-cols-3"
+      />
+      
+      <WhyChooseUsSection />
+      <Footer />
     </>
   );
 };
